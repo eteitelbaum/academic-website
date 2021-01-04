@@ -14,7 +14,7 @@ authors:
 - Robert Ford
 date: "2015-09-01T00:00:00Z"
 doi: ""
-featured: false
+featured: true
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
   focal_point: ""
@@ -32,7 +32,7 @@ tags:
 - Source Themes
 title: An example journal article
 url_code: ""
-url_dataset: ""
+url_dataset: http://linktodata.in
 url_pdf: http://arxiv.org/pdf/1512.04133v1
 url_poster: ""
 url_project: ""

@@ -1,5 +1,5 @@
 ---
-title: "WAS THE INDIAN LABOR MOVEMENT EVER CO-OPTED?"
+title: "Was the Indian Labor Movement Ever Coopted?"
 date: 2006-01-01
 publishDate: 2021-01-05T20:13:52.634063Z
 authors: ["Emmanuel Teitelbaum"]

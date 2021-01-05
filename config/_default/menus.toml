@@ -9,7 +9,7 @@
   weight = 20
 
 [[main]]
-  name = "Courses"
+  name = "Teaching"
   url = "courses/"
   weight = 30
   
@@ -17,16 +17,11 @@
   name = "Posts"
   url = "#posts"
   weight = 40
-
+  
 [[main]]
-  name = "Talks"
-  url = "#talks"
-  weight = 50
-
-[[main]]
-  name = "Projects"
+  name = "Work in Progress"
   url = "#projects"
-  weight = 60
+  weight = 50
   
 [[main]]
   name = "Contact"

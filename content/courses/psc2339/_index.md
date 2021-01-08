@@ -1,56 +1,38 @@
 ---
-date: "2018-09-09T00:00:00Z"
+date: "2021-01-08"
 draft: false
-lastmod: "2018-09-09T00:00:00Z"
-linktitle: An Example Course
+lastmod: "2021-01-08"
+linktitle: "PSC 2339: Comparative Political Economy"
 menu:
   example:
-    name: Overview
+    name: Course Overview
     weight: 1
-summary: Learn how to use Academic's docs layout for publishing online courses, software
-  documentation, and tutorials.
-title: Overview
+summary: A survey course in comparative political economy.
+title: Course Overview
 toc: true
-type: docs
-weight: 1
+type: book
+weight: 2
 ---
 
-## Flexibility
+## Course Description
 
-This feature can be used for publishing content such as:
+This is a survey course in comparative political economy, a ﬁeld of inquiry within the subﬁeld of comparative politics that explores the interaction of politics and the economy. Comparative political economy is one of the most active research ﬁelds in comparative politics and is comprised of a wide range of research topics. Frequently the focus of research in comparative political economy is on how institutions inﬂuence economic outcomes. How, for example, do property rights facilitate investment and economic growth? How dodifferent colonial legaciesinhibitor promote economic performance? Sometimes, however, institutions become the dependent variable in our analysis. Howdoes wealth inﬂuence regime stability? Or how does economicglobalization affect welfare states? This course will address questions like these through an exploration of relevant literature. The syllabus emphasizes current research agendas in political economy, and its main goal is to provide students with a broad overview of contemporary debates in the ﬁeld.
 
-* **Online courses**
-* **Project or software documentation**
-* **Tutorials**
+## Learning Objectives
 
-The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+Students in this course should strive to meet the following objectives: 
 
-## Delete tutorials
+1) Demonstrate a basic familiarity with the ﬁeld of comparative political economy. 
+2) Leverage differences between countries or regions to analyze the effects of institutions on economic outcomes and vice-versa. 
+3) Demonstrate how historical legacies shape contemporary political and economic outcomes. 
+4) Discern basic differences in institutional and economic structures shape how countries interact with the global economy.
 
-**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
 
-## Update site menu
+## Course Requirements
 
-After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
+1) Two exams (30% each) 
+2) Report and presentation (25%) 
+3) Quizzes (10%) 
+4) Participation (5%)
 
-For example, if you delete this folder, you can remove the following from your menu configuration:
-
-```toml
-[[main]]
-  name = "Courses"
-  url = "courses/"
-  weight = 50
-```
-
-Or, if you are creating a software documentation site, you can rename the `courses` folder to `docs` and update the associated *Courses* menu configuration to:
-
-```toml
-[[main]]
-  name = "Docs"
-  url = "docs/"
-  weight = 50
-```
-
-## Update the docs menu
-
-If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.
+{{% staticref "pdf/cpesyllabus.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}

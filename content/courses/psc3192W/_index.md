@@ -1,56 +1,52 @@
 ---
-date: "2018-09-09T00:00:00Z"
+date: "2021-01-08"
 draft: false
-lastmod: "2018-09-09T00:00:00Z"
-linktitle: An Example Course
+lastmod: "2021-01-08"
+linktitle: "PSC 3192W: Politics of South Asia Through Literature and Film"
 menu:
-  example:
-    name: Overview
+  psc3192w:
+    name: Course Overview
     weight: 1
-summary: Learn how to use Academic's docs layout for publishing online courses, software
-  documentation, and tutorials.
-title: Overview
+summary: This is an upper-division writing course that explores South Asian politics and society through literature, film and other media.
+title: Course Overview
 toc: true
-type: docs
-weight: 1
+type: book
+weight: 3
 ---
 
-## Flexibility
+## Course Description
 
-This feature can be used for publishing content such as:
+South Asia is home to approximately one-quarter of the world’s population (about 1.8 billion people). The social, political, and economic landscape of the region is highly diverse. Many South Asians have enjoyed the freedoms associated with political democracy while others have suffered under brutal dictatorships. Some enjoy peace and stability while others experience persistent communal strife. In some places, women are treated with greater respect and dignity whereas many feature heavily patriarchal cultures and norms. Some in South Asia prosper in relatively egalitarian societies while others endure grinding poverty, inequality, and deprivation. 
 
-* **Online courses**
-* **Project or software documentation**
-* **Tutorials**
+This course will explore South Asia’s breathtaking political, social and economic variation through literature and film. A primary aim is to harness the insights from the realm of art to illuminate academic and policy debates. How do South Asian novels and films enhance our understanding of the legacies of colonialism, the causes of communal strife, potential solutions to endemic poverty, or the consequences of gender bias or social and economic inequality? Students will learn to develop arguments to explain variation by comparing, contrasting and synthesizing competing social scientific perspectives and to support their arguments with details from textual and visual materials. Through this exploration, students will develop a working familiarity with South Asian politics and society as well as a deeper appreciation for the unique ability of literature and film to illuminate the region’s enduring challenges. 
 
-The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+## Learning Objectives
 
-## Delete tutorials
+- Develop a deeper understanding of how people in South Asia experience inequality and injustice through literature and film 
+- Critically reflect upon the role of literature and film as a tool for political and social reform
+- Identify the primary effects of India’s partition on contemporary politics in Bangladesh, India and Pakistan
+- Explain why some countries and regions in South Asia are more democratic than others
+- Formulate a theory for the prevalence of gender inequality and violence against women in South Asia
+- Compose an argumentative essay through an iterative process (starting with an abstract then progressing to an outline, first draft and final paper draft)
+- Critically monitor and evaluate the quality of your own writing
 
-**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
+## Course Requirements
 
-## Update site menu
+* Four short reviews (including at least one novel)—20%
+* Class presentation—10%
+* Blog posts—10%
+* Class participation—10%
+* Final paper—50%
+  - Short summary = 5% 
+  - Comprehensive outline = 10%
+  - First draft = 10%
+  - Final draft = 20%	
+  - Peer review and discussion of another student’s paper = 5% 
 
-After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
 
-For example, if you delete this folder, you can remove the following from your menu configuration:
+{{% staticref "pdf/PSC 3192W PSALF Fall 20.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}
 
-```toml
-[[main]]
-  name = "Courses"
-  url = "courses/"
-  weight = 50
-```
 
-Or, if you are creating a software documentation site, you can rename the `courses` folder to `docs` and update the associated *Courses* menu configuration to:
 
-```toml
-[[main]]
-  name = "Docs"
-  url = "docs/"
-  weight = 50
-```
 
-## Update the docs menu
 
-If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.

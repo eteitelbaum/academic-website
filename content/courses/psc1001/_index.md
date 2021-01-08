@@ -1,56 +1,43 @@
 ---
-date: "2018-09-09T00:00:00Z"
+date: "2020-01-08"
 draft: false
-lastmod: "2018-09-09T00:00:00Z"
-linktitle: An Example Course
+lastmod: "2020-01-08"
+linktitle: "PSC 1001: Introduction to Comparative Politics"
 menu:
-  example:
+  psc1001:
     name: Overview
     weight: 1
-summary: Learn how to use Academic's docs layout for publishing online courses, software
-  documentation, and tutorials.
-title: Overview
+summary: An introduction to the field of comparative politics and the comparative method.
+title: Course Overview
 toc: true
-type: docs
+type: book
 weight: 1
 ---
 
-## Flexibility
+## Course Description
 
-This feature can be used for publishing content such as:
+Why are some countries democratic and others dictatorships? Why do civil wars occur in some countries and not others? How does history impact the political and economic stability of nations? These are some of the questions addressed by scholars working in the field of comparative politics, which is defined by its focus on political questions that can be answered through cross-country comparison. In this course, we will explore the field of comparative politics through a survey of issue areas, including state capacity, nation-building, ethnic conflict, democratic and authoritarian regimes, transitions to democracy, terrorism and insurgency, and economic development. 
 
-* **Online courses**
-* **Project or software documentation**
-* **Tutorials**
+## Learning Objectives
 
-The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+This class satisfies G-PAC requirements in critical thinking and cross-cultural perspectives. In this class, you will:
 
-## Delete tutorials
+- Learn and critically analyze fundamental concepts in political science and comparative politics;
+- Apply these concepts in a variety of countries;
+- Learn how historical, societal, and cultural differences influence the practice of politics; 
+- Compare the differences between regime types and their impact on political, economic, and social outcomes;
+- Demonstrate your knowledge through analytical papers, writing exercises and one term paper, along with an intensive peer review process.
 
-**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
+## Course Requirements
 
-## Update site menu
+1)	Quizzes (10%)
+2)	Class participation and attendance (10%)
+3)	Memo and presentation (20%)
+4)	Group projects (30%)
+5)	Final (30%)
 
-After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
+{{% staticref "pdf/Teitelbaum PSC1001 2020.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}
 
-For example, if you delete this folder, you can remove the following from your menu configuration:
 
-```toml
-[[main]]
-  name = "Courses"
-  url = "courses/"
-  weight = 50
-```
 
-Or, if you are creating a software documentation site, you can rename the `courses` folder to `docs` and update the associated *Courses* menu configuration to:
 
-```toml
-[[main]]
-  name = "Docs"
-  url = "docs/"
-  weight = 50
-```
-
-## Update the docs menu
-
-If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.

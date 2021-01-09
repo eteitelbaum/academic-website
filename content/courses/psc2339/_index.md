@@ -1,17 +1,17 @@
 ---
 date: "2021-01-08"
+lastmod: "2021-01-09"
+title: "PSC 2339: Comparative Political Economy"
+linktitle: Overview
+summary: A survey course in comparative political economy. Explores important topics in the field through current events and by looking at the United States in comparative perspective. 
+toc: false
 draft: false
-lastmod: "2021-01-08"
-linktitle: "PSC 2339: Comparative Political Economy"
 menu:
-  example:
-    name: Course Overview
+  PSC 2339:
+    name: Overview
     weight: 1
-summary: A survey course in comparative political economy.
-title: Course Overview
-toc: true
 type: book
-weight: 2
+weight: 20
 ---
 
 ## Course Description
@@ -35,4 +35,4 @@ Students in this course should strive to meet the following objectives:
 3) Quizzes (10%) 
 4) Participation (5%)
 
-{{% staticref "pdf/cpesyllabus.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}
+{{% staticref "pdf/cpesyllabus.pdf" "newtab" %}}VIEW THE SYLLABUS{{% /staticref %}}

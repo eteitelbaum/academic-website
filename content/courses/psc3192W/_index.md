@@ -1,17 +1,17 @@
 ---
 date: "2021-01-08"
+lastmod: "2021-01-09"
+title: "PSC 3192W: Politics of South Asia Through Literature and Film"
+linktitle: Overview
 draft: false
-lastmod: "2021-01-08"
-linktitle: "PSC 3192W: Politics of South Asia Through Literature and Film"
+toc: false
 menu:
   psc3192w:
-    name: Course Overview
-    weight: 1
-summary: This is an upper-division writing course that explores South Asian politics and society through literature, film and other media.
-title: Course Overview
-toc: true
+    name: Overview
+    weight: 10
+summary: An upper-division writing course that explores South Asian politics and society through literature, film and other media.
 type: book
-weight: 3
+weight: 30
 ---
 
 ## Course Description
@@ -44,8 +44,7 @@ This course will explore South Asia’s breathtaking political, social and econo
   - Peer review and discussion of another student’s paper = 5% 
 
 
-{{% staticref "pdf/PSC 3192W PSALF Fall 20.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}
-
+{{% staticref "pdf/PSC 3192W PSALF Fall 20.pdf" "newtab" %}}VIEW THE SYLLABUS{{% /staticref %}}
 
 
 

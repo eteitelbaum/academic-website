@@ -2,7 +2,7 @@
 header:
   caption: ""
   image: ""
-layout: docs
+layout: book
 title: Courses
 ---
 

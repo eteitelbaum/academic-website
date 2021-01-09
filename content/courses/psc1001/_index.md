@@ -1,17 +1,17 @@
 ---
-date: "2020-01-08"
+date: "2021-01-08"
+lastmod: "2021-01-09"
+title: "PSC 1001: Introduction to Comparative Politics"
+linktitle: Overview
+summary: An introduction to the field of comparative politics and the comparative method. Required course for GWU PSC and IAFF majors.  
+toc: false
 draft: false
-lastmod: "2020-01-08"
-linktitle: "PSC 1001: Introduction to Comparative Politics"
 menu:
   psc1001:
     name: Overview
     weight: 1
-summary: An introduction to the field of comparative politics and the comparative method.
-title: Course Overview
-toc: true
 type: book
-weight: 1
+weight: 10
 ---
 
 ## Course Description
@@ -36,7 +36,7 @@ This class satisfies G-PAC requirements in critical thinking and cross-cultural 
 4)	Group projects (30%)
 5)	Final (30%)
 
-{{% staticref "pdf/Teitelbaum PSC1001 2020.pdf" "newtab" %}}CLICK HERE TO SEE THE SYLLABUS{{% /staticref %}}
+{{% staticref "pdf/Teitelbaum PSC1001 2020.pdf" "newtab" %}}VIEW THE SYLLABUS{{% /staticref %}}
 
 
 

@@ -14,21 +14,23 @@ menu:
 
 ## Objectives
 
-This week you should master the following concepts and objectives:
+* Review syllabus, course requirements and expectations
+* Begin a preliminary discussion of key concepts and themes 
+* Set the context by discussing the relevance of colonial legacies 
+## Academic Readings
+
+
+
+## Literature
+
+*Midnight's Children*, Book One
+
+## Film/Media
+
+* Lagaan
+
+## Assignments 
 
 * 
-
-
-## Delete tutorials
-
-**Write something in bold print**
-
-## Update site menu
-
-
-## Update the docs menu
-
-
-
 
 [VIEW THE SLIDES]({{< ref "/slides/example/index.md" >}})

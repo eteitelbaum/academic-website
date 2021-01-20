@@ -18,10 +18,16 @@ title: Slides
 
 ## Features
 
-- Efficiently write slides in Markdown
-- 3-in-1: Create, Present, and Publish your slides
-- Supports speaker notes
-- Mobile friendly slides
+- Key concepts and themes to review
+  - colonialism
+  - partition
+  - communalism
+  - caste
+  - clientelism
+  - criminality
+  - patriarchy
+  - development
+
 
 ---
 

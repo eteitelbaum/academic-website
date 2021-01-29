@@ -9,7 +9,7 @@ featured: true
 publication: "Working Paper"
 url_pdf: "pdf/teitelbaum_ravi.pdf"
 links: 
-- name: Supplemental Info
+- name: Online Appendix
   url: pdf/supplemental_information.pdf
 ---
 

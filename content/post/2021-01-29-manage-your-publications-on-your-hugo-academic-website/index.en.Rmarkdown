@@ -1,5 +1,5 @@
 ---
-title: Managing Publications on Your Hugo Academic Website
+title: Managing publications on your Hugo Academic website
 author: Emmanuel Teitelbaum
 date: '2021-01-29'
 slug: managing-publications-on-your-hugo-website
@@ -9,7 +9,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-01-29T15:12:09-05:00'
+lastmod: '2021-02-19T15:12:09-05:00'
 featured: no
 image: 
   caption: 'Photo by <a href="https://unsplash.com/@gabiontheroad?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Gabriella Clare Marino</a> on <a href="https://unsplash.com/s/photos/publications?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -19,17 +19,17 @@ projects: []
 draft: FALSE
 ---
 
-For my first blogdown blog post, I thought I would say a little bit about how I set up the publications section of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme. My favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Allison Hill. But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
+For my first blogdown blog post, I thought I would say a little bit about how I set up the of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme. My favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Allison Hill. But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
 
 **Note**: Everything I am about to review was done using Hugo version 0.80.0 and blogdown version 0.21.80.   
 
 ## Step 1: Import your publications
 
-The first step is to import your publications from your reference manager to your `content\publication` folder. Currently, there is no tool in blogdown to help with this, so I used the [Python package](https://github.com/wowchemy/hugo-academic-cli) described in the [Wowchemy documentation](https://wowchemy.com/docs/content/publications/). Conveniently, you can opt to install an earlier version of the tool if you don't want to run it through Hugo in Python.  
+The first step is to import your publications from your reference manager to your `content\publication` folder. Currently, there is no tool in blogdown to help with this, so I used the Python-based [Academic CLI](https://github.com/wowchemy/hugo-academic-cli) tool described in the [Wowchemy documentation](https://wowchemy.com/docs/content/publications/). Conveniently, you can opt to install an earlier version of the tool if you don't want to run it through Hugo in Python.  
 
 ## Step 2: Dress up your publications
 
-Now you can go to the `publication` folder and edit the individual publications. You can edit the basic info in the `index.md` file and add links to relevant external or local content such as a .pdf, bibliographic citation or replication materials. Hugo offers some standard links such as `url_pdf` and `url_code`, but you can also include custom links like this:
+Now you can go to the `publication` folder and edit the individual publications. You can edit the basic info in the `index.md` file such as the title, author or publication type and add links to relevant external or local content such as a .pdf, appendix or replication materials. Hugo offers some standard links such as `url_pdf` and `url_code`, but you can also include custom links like this:
 
 ```
 links: 

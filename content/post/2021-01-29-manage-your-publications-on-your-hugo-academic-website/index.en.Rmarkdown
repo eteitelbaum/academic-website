@@ -3,9 +3,11 @@ title: Managing publications on your Hugo Academic website
 author: Emmanuel Teitelbaum
 date: '2021-01-29'
 slug: managing-pubs-Academic-website
-categories: []
+categories: [hugo academic, blogdown]
 tags:
-  - Academic
+  - hugo academic
+  - blogdown
+  - publications
 subtitle: ''
 summary: ''
 authors: []

@@ -9,7 +9,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-02-19T15:12:09-05:00'
+lastmod: '2021-02-20' 
 featured: no
 image: 
   caption: 'Photo by <a href="https://unsplash.com/@gabiontheroad?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Gabriella Clare Marino</a> on <a href="https://unsplash.com/s/photos/publications?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -29,12 +29,23 @@ The first step is to import your publications from your reference manager to you
 
 ## Step 2: Dress up your publications
 
-Now you can go to the `publication` folder and edit the individual publications. You can edit the basic info in the `index.md` file such as the title, author or publication type and add links to relevant external or local content such as a .pdf, appendix or replication materials. Hugo offers some standard links such as `url_pdf` and `url_code`, but you can also include custom links like this:
+Now you can go to the `publication` folder and edit the individual publications. You can edit the basic info in the `index.md` file such as the title, author or publication type and add links to relevant external or local content such as a .pdf, appendix or replication materials. Hugo offers some standard links such as `url_pdf` and `url_code`, but you can also include custom links. Here is an example: 
 
 ```
+---
+title: "Fast Fashion or Clean Clothes? Estimating the Value of Labor Standards"
+date: 2021-01-28
+publishDate: 2021-01-05T20:13:52.623034Z
+authors: ["Emmanuel Teitelbaum", "Aparna Ravi"]
+publication_types: ["3"]
+abstract: "We test the relative strength of consumer preferences for internationally recognized labor rights with a series of conjoint experiments embedded in a survey of more than 2,000 U.S. consumers. We employ a Bayesian approach to estimate consumer demand for ethically-made garments and to simulate how that demand translates into increased profits for apparel firms. We find that reported labor rights violations reduce expected profits while advertising respect for various labor standards through ethical labels and certifications tends to boost them. But the profits flowing from simple labeling initiatives are limited by the ability of other firms to adopt similar advertising campaigns. Since respect for labor rights cannot be patented, corporate social responsibility initiatives may only prove valuable for a handful of first-movers that can incorporate worker protections as a core element of their brand strategy. Our findings have important implications for debates regarding the effectiveness of private governance initiatives."
+featured: true
+publication: "Working Paper"
+url_pdf: "pdf/teitelbaum_ravi.pdf"
 links: 
 - name: Online Appendix
   url: pdf/supplemental_information.pdf
+---
 ```
 
 Another nice touch is to add a `featured.jpg` by including it in the publication's folder. This can be a picture of your book cover, the cover of the journal where you published your article or some other related image. You can also set it up so that the image only appears in the preview on the homepage, and not after you click on the publication, like this: 
@@ -62,4 +73,6 @@ This gives me three consecutive sections listing my book, journal articles and w
 
 ## Step 4: Add more publications
 
-The easiest way to add new publications is to use the Academic CLI tool discussed in step one and a new `.bib` file. Theoretically, there should be a way to generate a new publication directly in R Markdown using the `blogdown::hugo::new_content` wrapper, but I have not figured out how to do it yet. I have posted [a query](https://stackoverflow.com/questions/66057149/how-to-add-a-new-publication-to-a-blogdown-academic-themed-website) about this on stack overflow and will update this post when when I get an answer!    
+The easiest way to add new publications is to use the Academic CLI tool discussed in step one and a new `.bib` file.
+
+Theoretically, there should also be a way to generate a new publication directly in R Markdown using the `blogdown::hugo::new_content` wrapper, but I have not figured out how to make it work. I have posted [a query](https://stackoverflow.com/questions/66057149/how-to-add-a-new-publication-to-a-blogdown-academic-themed-website) about this on stack overflow in case anyone has a clue.  

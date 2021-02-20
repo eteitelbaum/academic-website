@@ -1,0 +1,30 @@
+<p>For my first blog post, I thought I would say a little bit about how I set up the publications section of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme (my favorite guide is <a href="https://alison.rbind.io/post/new-year-new-blogdown/">this one</a> by Allison Hill). But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned.</p>
+<p><strong>Note</strong>: Everything I am about to review was done using Hugo version 0.80.0 and blogdown version 0.21.80.</p>
+<div id="step-1-import-your-publications" class="section level2" number="0.1">
+<h2 number="0.1"><span class="header-section-number">0.1</span> Step 1: Import your publications</h2>
+<p>The first step is to import your publications from your reference manager to your <code>content\publication</code> folder. Currently, there is no tool in blogdown to help with this, so I used the Python-based <a href="https://github.com/wowchemy/hugo-academic-cli">Academic CLI</a> tool described in the <a href="https://wowchemy.com/docs/content/publications/">Wowchemy documentation</a>. Conveniently, you can opt to install an earlier version of the tool if you don’t want to run it through Hugo in Python.</p>
+</div>
+<div id="step-2-dress-up-your-publications" class="section level2" number="0.2">
+<h2 number="0.2"><span class="header-section-number">0.2</span> Step 2: Dress up your publications</h2>
+<p>Now you can go to the <code>publication</code> folder and edit the individual publications. You can edit the basic info in the <code>index.md</code> file such as the title, author or publication type and add links to relevant external or local content such as a .pdf, appendix or replication materials. Hugo offers some standard links such as <code>url_pdf</code> and <code>url_code</code>, but you can also include custom links like this:</p>
+<pre><code>links: 
+- name: Online Appendix
+  url: pdf/supplemental_information.pdf</code></pre>
+<p>Another nice touch is to add a <code>featured.jpg</code> by including it in the publication’s folder. This can be a picture of your book cover, the cover of the journal where you published your article or some other related image. You can also set it up so that the image only appears in the preview on the homepage, and not after you click on the publication, like this:</p>
+<pre><code>image: 
+  preview only: true  </code></pre>
+</div>
+<div id="step-3-use-featured-widgets-to-set-up-separate-sections" class="section level2" number="0.3">
+<h2 number="0.3"><span class="header-section-number">0.3</span> Step 3: Use “featured” widgets to set up separate sections</h2>
+<p>You can make creative use of the “featured” widgets to set up separate sections for your publications. In my case I wanted a section for books, one for journal articles and one for working papers.</p>
+<p>In the <code>content\home</code> folder, I made a copy of <code>featured.md</code> and named it <code>working-papers.md</code>. I then renamed the original <code>featured.md</code> to <code>books.md</code>.</p>
+<p>From there, I opened <code>books.md</code>, set <code>weight:</code> to <code>20</code>, changed the <code>title:</code> to <code>Book</code> and set <code>filters: publication_type:</code> to <code>"5"</code>.</p>
+<p>Next, I opened the new <code>working-papers.md</code> file, set <code>weight:</code> to <code>30</code>, changed <code>title:</code> to <code>Working Papers</code> and set <code>filters: publication_type:</code> to <code>"3"</code>.</p>
+<p>Then I renamed <code>publications.md</code> to <code>articles.md</code>, opened the file, set <code>weight:</code> to <code>25</code>, <code>title:</code> to <code>Journal Articles</code> and set <code>exclude_featured:</code> to <code>true</code>. This ensures that the books and working papers that I want to include in the “featured” widgets do not also appear in my “Journal Articles” section.</p>
+<p>Finally, I set <code>featured:</code> to <code>true</code> in the <code>index.md</code> files for my book and working papers in <code>content\publication</code> to populate the new “Book” and “Working Papers” featured widgets.</p>
+<p>This gives me three consecutive sections listing my book, journal articles and working papers.</p>
+</div>
+<div id="step-4-add-more-publications" class="section level2" number="0.4">
+<h2 number="0.4"><span class="header-section-number">0.4</span> Step 4: Add more publications</h2>
+<p>The easiest way to add new publications is to use the Academic CLI tool discussed in step one and a new <code>.bib</code> file. Theoretically, there should be a way to generate a new publication directly in R Markdown using the <code>blogdown::hugo::new_content</code> wrapper, but I have not figured out how to do it yet. I have posted <a href="https://stackoverflow.com/questions/66057149/how-to-add-a-new-publication-to-a-blogdown-academic-themed-website">a query</a> about this on stack overflow and will update this post when when I get an answer!</p>
+</div>

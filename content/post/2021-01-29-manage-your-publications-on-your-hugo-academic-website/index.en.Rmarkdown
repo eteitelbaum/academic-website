@@ -19,7 +19,7 @@ projects: []
 draft: FALSE
 ---
 
-For my first blogdown blog post, I thought I would say a little bit about how I set up the of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme. My favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Allison Hill. But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
+For my first blogdown blog post, I thought I would say a little bit about how I set up the publications section of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme. My favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Allison Hill. But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
 
 **Note**: Everything I am about to review was done using Hugo version 0.80.0 and blogdown version 0.21.80.   
 

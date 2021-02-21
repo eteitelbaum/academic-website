@@ -78,3 +78,11 @@ This gives me three consecutive sections listing my book, journal articles and w
 The easiest way to add new publications is to use the Academic CLI tool discussed in step one and a new `.bib` file.
 
 Theoretically, there should also be a way to generate a new publication directly in R Markdown using the `blogdown::hugo::new_content` wrapper, but I have not figured out how to make it work. I have posted [a query](https://stackoverflow.com/questions/66057149/how-to-add-a-new-publication-to-a-blogdown-academic-themed-website) about this on stack overflow in case anyone has a clue.  
+
+<script src="https://utteranc.es/client.js"
+        repo="eteitelbaum/academic-website"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

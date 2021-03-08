@@ -24,7 +24,7 @@ draft: FALSE
 
 These are the steps that I took to set up my website using blogdown and the [Hugo Academic (Wochemy)](https://wowchemy.com/) theme. These are mainly notes to remind myself of what I did, but I hope that they can be useful to others as well. Many of the steps recounted here are based on what I learned from [this super-helpful post](https://alison.rbind.io/post/new-year-new-blogdown/) by Alison Hill. 
 
-1. Open a GitHub account and set up a personal access token (PAT) in R using `usethis::create_github_token()`. Consult [Happy Git and Git Hub for the R User](https://happygitwithr.com/) for more details. 
+1. Open a GitHub account and set up a personal access token (PAT) in R using `usethis::create_github_token()`. Consult [Happy Git and Git Hub for the UseR](https://happygitwithr.com/) for more details. 
 
 2. Create a [Github](https://github.com/) repository. Initialize the repository with a `README` but don't worry about adding `.gitignore` or a license. 
 

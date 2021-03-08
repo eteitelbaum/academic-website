@@ -19,7 +19,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-draft: TRUE
+draft: FALSE
 ---
 
 These are the steps that I took to set up my website using blogdown and the [Hugo Academic (Wochemy)](https://wowchemy.com/) theme. These are mainly notes to remind myself of what I did, but I hope that they can be useful to others as well. Many of the steps recounted here are based on what I learned from [this super-helpful post](https://alison.rbind.io/post/new-year-new-blogdown/) by Alison Hill. 
@@ -41,7 +41,7 @@ library(blogdown)
 new_site(theme = "wowchemy/starter-academic"
 ```
 
-7. Select `y` to let blogdown star the server and get a local preview. In the future, you can use `blogdown::stop_server` to stop the server and `blogdown::start_server` to restart it.  
+7. Select `y` to let blogdown star the server and get a local preview. In the future, you can use `blogdown::stop_server` to stop the server and `blogdown::serve_site` to restart it.  
 
 8. Create content. 
 

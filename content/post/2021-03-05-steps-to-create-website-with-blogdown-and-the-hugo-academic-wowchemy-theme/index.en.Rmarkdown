@@ -2,7 +2,7 @@
 title: Steps to create website with blogdown and the Hugo Academic (Wowchemy) theme
 author: Emmanuel Teitelbaum
 date: '2021-03-05'
-slug: steps-to-create-website-with-blogdown-and-the-hugo-academic-wowchemy-theme
+slug: create-a-website-with-blogdown-and-hugo
 categories:
   - hugo academic
   - blogdown

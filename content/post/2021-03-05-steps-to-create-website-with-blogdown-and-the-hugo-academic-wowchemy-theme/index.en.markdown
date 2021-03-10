@@ -12,7 +12,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-03-09' 
+lastmod: '2021-03-10' 
 featured: no
 image:
   caption: '<span>Photo by <a href="https://unsplash.com/@daniel_von_appen?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel von Appen</a> on <a href="https://unsplash.com/s/photos/steps?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -22,7 +22,7 @@ projects: []
 draft: FALSE
 ---
 
-These are the steps that I took to set up my website using blogdown and the [Hugo Academic (Wochemy)](https://wowchemy.com/) theme. These are mainly notes to remind myself of what I did, but I hope that they can be useful to others as well. Many of the steps recounted here are based on what I learned from [this super-helpful post](https://alison.rbind.io/post/new-year-new-blogdown/) by Alison Hill. 
+These are the steps that I took to set up my website using blogdown and the [Hugo Academic (Wochemy)](https://wowchemy.com/) theme. I also did a little ["how to" session](https://www.youtube.com/watch?v=BHpkLJieXPE) with some GW political science graduate students where we worked through these steps and got everyone started with a blogdown site. Many of the steps recounted here are based on what I learned from [this super-helpful post](https://alison.rbind.io/post/new-year-new-blogdown/) by Alison Hill. 
 
 1. Open a GitHub account and set up a personal access token (PAT) in R using `usethis::create_github_token()`. Consult [Happy Git and Git Hub for the UseR](https://happygitwithr.com/) for more details. 
 

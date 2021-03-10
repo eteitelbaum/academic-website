@@ -11,7 +11,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-02-20' 
+lastmod: '2021-03-09' 
 featured: no
 image: 
   caption: 'Photo by <a href="https://unsplash.com/@gabiontheroad?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Gabriella Clare Marino</a> on <a href="https://unsplash.com/s/photos/publications?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -21,7 +21,7 @@ projects: []
 draft: FALSE
 ---
 
-For my first blog post, I thought I would say a little bit about how I set up the publications section of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme (my favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Allison Hill). But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
+For my first blog post, I thought I would say a little bit about how I set up the publications section of my website. There are a good many tutorials out there on how to set up a website using blogdown and the Hugo Academic theme (my favorite guide is [this one](https://alison.rbind.io/post/new-year-new-blogdown/)  by Alison Hill). But I found less information on how to manage academic content, so I thought it might be helpful to share what I learned. 
 
 **Note**: Everything I am about to review was done using Hugo version 0.80.0 and blogdown version 0.21.80.   
 

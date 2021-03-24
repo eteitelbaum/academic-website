@@ -44,7 +44,7 @@ This course will explore South Asia’s breathtaking political, social and econo
   - Peer review and discussion of another student’s paper = 5% 
 
 
-{{% staticref "pdf/PSC 3192W PSALF Fall 20.pdf" "newtab" %}}VIEW THE SYLLABUS{{% /staticref %}}
+{{% staticref "pdf/PSC 3192W PSALF.pdf" "newtab" %}}VIEW THE SYLLABUS{{% /staticref %}}
 
 
 

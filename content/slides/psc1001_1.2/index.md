@@ -40,6 +40,7 @@ title: Lecture 1.2--The Comparative Method
 ---
 
 <section>
+  <section></section>
   
 ## Elements of an Explanation
 

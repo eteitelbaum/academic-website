@@ -39,9 +39,6 @@ title: Lecture 1.2--The Comparative Method
 
 ---
 
-<section>
-  <section></section>
-  
 ## Elements of an Explanation
 
 - **Dependent variable**--Effect or outcome that we want to explain
@@ -50,21 +47,31 @@ title: Lecture 1.2--The Comparative Method
 
 ---
 
+<section>
   <section></section>
-  
+
 ## Tree example 
 
 <img src="/media/tree1.jpg"  height="300" width="500">
 
 ---
-  
+
   <section></section>
 
 ## Tree example
 
 <img src="/media/tree2.jpg"  height="300" width="500">
 
+
 </section>
+--- 
+
+
+
+
+  
+
+
 
 ---
 

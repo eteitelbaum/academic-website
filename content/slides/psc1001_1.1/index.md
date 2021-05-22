@@ -39,6 +39,8 @@ title: Lecture 1.1--What is Comparative Politics?
 
 ---
 
+{{% section %}}
+
 ## Elements of an Explanation
 
 - **Dependent variable**--Effect or outcome that we want to explain
@@ -58,6 +60,14 @@ title: Lecture 1.1--What is Comparative Politics?
 <img src="/media/tree2.jpg"  height="300" width="500">
 
 ---
+
+## Common Outcomes (DVs) in Political Science
+
+{{% /section %}}
+
+---
+
+{{% section %}}
 
 ## Causal Mechanisms
 
@@ -82,7 +92,10 @@ title: Lecture 1.1--What is Comparative Politics?
 
 <img src="/media/dem-dev3.jpg"  height="300" width="400">
 
+{{% /section %}}
 ---
+
+{{% section %}}
 
 ## Spurious Correlation
 
@@ -104,7 +117,15 @@ title: Lecture 1.1--What is Comparative Politics?
 
 <img src="/media/spurious-correlation2.jpg"  height="300" width="500">
 
+---
 
+## Political Science Example
+
+{{% /section %}}
+
+---
+
+## Conclusion
 
 
 

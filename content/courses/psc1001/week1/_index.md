@@ -29,6 +29,7 @@ Demonstrate how “causal mechanisms” link independent and dependent variables
 
 Devise an appropriate test for whether a causal relationship between a dependent and independent variable exists. (Course objective 6)
 
-[Module 1.1 Slides]({{< ref "/slides/psc1001_1.1/index.md" >}})
+[Module 1.1 Slides]({{< ref
+"/slides/psc1001_1.1/index.md" >}})
 
 [Module 1.2 Slides]({{< ref "/slides/psc1001_1.1/index.md" >}})

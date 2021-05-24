@@ -39,63 +39,61 @@ title: Lecture 1.1--What is Comparative Politics?
 
 ---
 
-{{% section %}}
-
-## Elements of an Explanation
+## Variables
 
 - **Dependent variable**--Effect or outcome that we want to explain
 
-- **Independent variable**--The factors that explain/cause the outcome
+- **Independent variable**--The factors that explain/cause the outcome; also referred to as an "explanatory variable"
 
 ---
 
-## Tree example 
+### Silly tree example 
 
 <img src="/media/tree1.jpg"  height="300" width="500">
 
 ---
 
-## Tree example
-
-<img src="/media/tree2.jpg"  height="300" width="500">
+<img src="/media/tree2.jpg"  height="425" width="700">
 
 ---
 
-## Common Outcomes (DVs) in Political Science
-
-{{% /section %}}
+<img src="/media/tree3.jpg"  height="425" width="700">
 
 ---
 
-{{% section %}}
+## Political Science Examples
+
+How would you "operationalize" the study of these questions with independent and dependent variables? 
+
+- “How do states become powerful?”
+- “Does ethnic diversity cause violent conflict?”
+- “Why are women more politically powerful in some countries than others?”
+- “Does greater civic participation lead to better democracy?”
+- “Why are some countries rich and others poor?”
+
+---
 
 ## Causal Mechanisms
 
-- Set of intervening factors or variables (or 'causal sequence') that links a dependent and independent variable
-- Story of the relationship between variables (the 'because')
+- Set of intervening factors or variables (or 'causal sequence') that links an independent variable to a dependent variable
+
+- The story of the relationship between variables 
+
+- The "because" of the relationship
 
 ---
 
-## Democracy example
-
-<img src="/media/dem-dev1.jpg"  height="300" width="400">
+<img src="/media/dem-dev1.jpg"  height="450" width="600">
 
 ---
 
-## Democracy example 
-
-<img src="/media/dem-dev2.jpg"  height="300" width="400">
+<img src="/media/dem-dev2.jpg"  height="450" width="600">
 
 ---
 
-## Democracy example 
+<img src="/media/dem-dev3.jpg"  height="450" width="600">
 
-<img src="/media/dem-dev3.jpg"  height="300" width="400">
-
-{{% /section %}}
 ---
-
-{{% section %}}
 
 ## Spurious Correlation
 
@@ -107,21 +105,27 @@ title: Lecture 1.1--What is Comparative Politics?
 
 ---
 
-## Ice cream example
+### Silly ice cream example
 
-<img src="/media/spurious-correlation1.jpg"  height="300" width="500">
-
----
-
-## Ice cream example 
-
-<img src="/media/spurious-correlation2.jpg"  height="300" width="500">
+<img src="/media/ice-cream.jpg"  height="300" width="500">
 
 ---
 
-## Political Science Example
+<img src="/media/spurious-correlation1.jpg"  height="425" width="700">
 
-{{% /section %}}
+---
+
+<img src="/media/spurious-correlation2.jpg"  height="425" width="700">
+
+---
+
+## Political Science Examples
+
+- Foreign aid and political stability (natural disasters)
+
+- Civil society and democracy (wealth) 
+
+- Electoral institutions and economic performance (colonialism)
 
 ---
 

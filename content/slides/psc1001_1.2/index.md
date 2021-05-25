@@ -13,118 +13,133 @@ tags:
 title: Lecture 1.2--The Comparative Method
 ---
 
-## Key Questions/Topics
+## Types of Hypotheses
 
-- “How do states become powerful?”
-- “Does ethnic diversity cause violent conflict?”
-- “Why are women more politically powerful in some countries than others?”
-- “Does greater civic participation lead to better democracy?”
-- “Why are some countries rich and others poor?”
+<img src="/media/h_types.jpg"  height="450" width="600">
 
 ---
 
-## Overview
+## Hypothesis Testing
 
-- Theoretical perspectives
-- Elements of an explanation
-- Correlation versus causation
+<img src="/media/h_testing.jpg"  height="450" width="600">
 
 ---
 
-## Theoretical Perspectives
+## Case Study
 
-- Rational choice
-- Cultural perspectives
-- Structural perspectives
+- Focuses intensely on one case
+- Sometimes used  to explore potential explanations 
+  - Focus on atypical cases
+- Also used to explore descriptive hypotheses
+  - Focus on typical cases
+  
+---
+
+<img src="/media/scott.jpg"  height="450" width="600">
 
 ---
 
-## Elements of an Explanation
+## Paired Comparison
 
-- **Dependent variable**--Effect or outcome that we want to explain
+- Used as basic test of causal argument
 
-- **Independent variable**--The factors that explain/cause the outcome
+- Two cases similar in most respects except for outcome
 
----
-
-<section>
-  <section></section>
-
-## Tree example 
-
-<img src="/media/tree1.jpg"  height="300" width="500">
+- Typically cases within same geographic region
 
 ---
 
-  <section></section>
+<img src="/media/yashar.jpg"  height="450" width="600">
 
-## Tree example
+---
 
-<img src="/media/tree2.jpg"  height="300" width="500">
+## Most Similar Systems
 
+Examines cases that are similar in all or most respects to understand outcome that *differs* between them
 
-</section>
 --- 
 
-
-
-
-  
-
-
+<img src="/media/mss1.jpg"  height="450" width="600">
 
 ---
 
-## Causal Mechanisms
-
-- Set of intervening factors or variables (or 'causal sequence') that links a dependent and independent variable
-- Story of the relationship between variables (the 'because')
+<img src="/media/mss2.jpg"  height="450" width="600">
 
 ---
 
-
-## Democracy example
-
-<img src="/media/dem-dev1.jpg"  height="300" width="400">
+<img src="/media/mss3.jpg"  height="450" width="600">
 
 ---
 
-## Democracy example 
+## Most Different Systems
 
-<img src="/media/dem-dev2.jpg"  height="300" width="400">
-
----
-
-## Democracy example 
-
-<img src="/media/dem-dev3.jpg"  height="300" width="400">
+Examine cases that are different in all or most respects to understand a **common outcome**
 
 ---
 
-## Spurious Correlation
-
-- Does correlation = causation?
-
-- **Spurious correlation** occurs when two variables appear to be directly linked in a cause-effect relationship but in fact (a) there is no causal link whatsoever; or (b) they are linked indirectly by some other causal variable or variables
-
-- Occurs when we cannot specify or demonstrate the mechanism
+<img src="/media/mds1.jpg" height="450" width="600">
 
 ---
 
-## Ice cream example
-
-<img src="/media/spurious-correlation1.jpg"  height="300" width="500">
+<img src="/media/mds2.jpg" height="450" width="600">
 
 ---
 
-## Ice cream example 
+<img src="/media/mds3.jpg"  height="450" width="600">
 
-<img src="/media/spurious-correlation2.jpg"  height="300" width="500">
+---
 
+## Quantitative Analysis 
 
+Employs statistical correlations to demonstrate relationships between IVs & DVs
 
+Less about...
 
+{{% fragment %}} Deterministic if-then statements  {{% /fragment %}}
+{{% fragment %}} More about...  {{% /fragment %}}
+{{% fragment %}} Probabilistic statements regarding likelihood {{% /fragment %}}
 
+---
+
+## Types of Correlation
+
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+</style>
+
+<div class="container"> 
+
+<div class="col">
+Positive
+<img src="/media/wealth-dem.jpg">
+</div>
+
+<div class="col">
+Negative
+<img src="/media/oil-dem.jpg">
+</div>
+
+</div>
+
+---
+
+## Division of Labor
+
+- Qualitative Studies
+  - Good for generating hypotheses and positing mechanisms
+  - Bad for testing generalizability
+- Quantitative Studies
+  - Good for testing generalizability
+  - Bad for helping to develop hypotheses or getting at “on the ground” reality
+
+--- 
+
+## Conclusion
 
 
 

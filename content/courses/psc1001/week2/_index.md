@@ -1,5 +1,5 @@
 ---
-title: Comparative Politics and the Comparative Method
+title: States, State Capacity and State Fragility
 linktitle: Week 2
 date: "2021-01-09"
 lastmod: "2021-01-09"

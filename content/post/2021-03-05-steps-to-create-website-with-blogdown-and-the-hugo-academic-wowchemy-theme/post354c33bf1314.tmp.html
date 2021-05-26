@@ -1,0 +1,18 @@
+<p>These are the steps that I took to set up my website using blogdown and the <a href="https://wowchemy.com/">Hugo Academic (Wochemy)</a> theme. I also did a little <a href="https://www.youtube.com/watch?v=BHpkLJieXPE">“how to” session</a> with some GW political science graduate students where we worked through these steps and got everyone started with a blogdown site. Many of the steps recounted here are based on what I learned from <a href="https://alison.rbind.io/blog/2020-12-new-year-new-blogdown/">this super-helpful post</a> by Alison Hill.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open a GitHub account and set up a personal access token (PAT) in R using <code>usethis::create_github_token()</code>. Consult <a href="https://happygitwithr.com/">Happy Git and Git Hub for the UseR</a> for more details.</p></li>
+<li><p>Create a <a href="https://github.com/">Github</a> repository. Initialize the repository with a <code>README</code> but don’t worry about adding <code>.gitignore</code> or a license.</p></li>
+<li><p>Go to your new repository and click on the green button that says <strong>Code</strong>. Choose HTTPS (the default) and click on the clipboard to copy the link.</p></li>
+<li><p>Open RStudio. Navigate to <code>File &gt; New Project &gt; Version Control &gt; Git</code> and paste the URL from step 2 into the <strong>Repository URL:</strong> field. Browse to a location where you want to store the project and click <strong>Create Project</strong>.</p></li>
+<li><p>Install blogdown (<code>install.packages("blogdown")</code>).</p></li>
+<li><p>Create the site:</p></li>
+</ol>
+<pre><code>library(blogdown)
+new_site(theme = &quot;wowchemy/starter-academic&quot;</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Select <code>y</code> to let blogdown star the server and get a local preview. In the future, you can use <code>blogdown::stop_server</code> to stop the server and <code>blogdown::serve_site</code> to restart it.</p></li>
+<li><p>Create content.</p></li>
+<li><p>Check content using <code>blogdown::check_content()</code> and fix any issues.</p></li>
+<li><p>Commit changes with <code>usethis::use_git()</code> and push them to GitHub using the little green arrow in RStudio’s Git window.</p></li>
+<li><p>Publish the site to Netlify. Sign up using your GitHub account, then log in and select <code>New site from Git &gt; Continuous Deployment: GitHub</code>. Select the repository with your site and deploy it!</p></li>
+</ol>

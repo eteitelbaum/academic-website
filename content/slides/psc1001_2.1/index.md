@@ -2,7 +2,7 @@
 authors: 
 - admin
 categories: []
-date: "2021-05-20T00:00:00Z"
+date: "2021-05-25T00:00:00Z"
 slides:
   highlight_style: dracula
   theme: black
@@ -111,7 +111,7 @@ Chief functions: 1) devise and execute law; 2) head of military. Important disti
 <div class="container"> 
 
 <div class="col">
-Chief functions: 1) protect country from external threats; 2) Maintain law and order. Extent of military intervention varies with regime type.
+Chief functions: 1) protect country from external threats; 2) maintain law and order. Extent of military intervention varies with regime type.
 </div>
 
 <div class="col">
@@ -151,10 +151,10 @@ Chief function: maintain law and order. Police are the means through which the s
 
 - Three levels of state power
   - National (federal)
-  - Retional (state or provincial)
+  - Regional (state or provincial)
   - Local
 
-- **Federalism**: A system in which regional legislatures, executives (governors), judiciaries and police have a great of authority to make, review and enforce their own laws 
+- **Federalism**: A system in which regional legislatures, executives (governors), judiciaries and police have substantial authority to make, review and enforce their own laws 
 
 ---
 

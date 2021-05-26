@@ -116,12 +116,12 @@ Less about...
 
 <div class="col">
 Positive
-<img src="/media/wealth-dem.jpg">
+<img src="/media/wealth-dem.png">
 </div>
 
 <div class="col">
 Negative
-<img src="/media/oil-dem.jpg">
+<img src="/media/oil-dem.png">
 </div>
 
 </div>

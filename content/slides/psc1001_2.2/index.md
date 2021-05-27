@@ -6,138 +6,139 @@ date: "2021-05-20T00:00:00Z"
 slides:
   highlight_style: dracula
   theme: black
-summary: An overview of the field of comparative politics
+summary: Why are some states stronger than others? 
 tags: 
 - Comparative Politics
 - PSC 1001
-title: Lecture 1.2--The Comparative Method
+title: Lecture 2.2--State Failure and Political Violence
 ---
 
-## Types of Hypotheses
+## States as Racketeers
 
-<img src="/media/h_types.jpg"  height="450" width="600">
 
----
+"To the extent that the threats against which a  given government protects its citizens are imaginary or are consequences of its own activities, the government has organized a  protection racket."
 
-## Hypothesis Testing
-
-<img src="/media/h_testing.jpg"  height="450" width="600">
+Charles Tilly, "War Making and State Making as Organized Crime"  
 
 ---
 
-## Case Study
-
-- Focuses intensely on one case
-- Sometimes used  to explore potential explanations 
-  - Focus on atypical cases
-- Also used to explore descriptive hypotheses
-  - Focus on typical cases
-  
----
-
-<img src="/media/scott.jpg"  height="450" width="600">
+- **Protection racket**--a scheme that involves generating  threats and then demanding payments to be protected against those threats
 
 ---
 
-## Paired Comparison
+States act as racketeers in three ways:
 
-- Used as basic test of causal argument
-
-- Two cases similar in most respects except for outcome
-
-- Typically cases within same geographic region
+1. Generating threats through warfare 
+2. Fabricating or exaggerating external threats
+3. Threatening citizens directly themselves
 
 ---
 
-<img src="/media/yashar.jpg"  height="450" width="600">
+"War makes states and states make war."
+
+Charles Tilly, *Coercion, Capital and European States: 990-1992*
 
 ---
 
-## Most Similar Systems
+<img src="/media/ad1000.png"  height="600" width="450">
 
-Examines cases that are similar in all or most respects to understand outcome that *differs* between them
+Europe: 1000 CE
 
 --- 
 
-<img src="/media/mss1.jpg"  height="450" width="600">
+<img src="/media/ad1648.png"  height="600" width="450">
+
+Europe: 1648 CE
 
 ---
 
-<img src="/media/mss2.jpg"  height="450" width="600">
+<img src="/media/ad1911.png"  height="600" width="450">
+
+Europe: 1911 CE
 
 ---
 
-<img src="/media/mss3.jpg"  height="450" width="600">
+<img src="/media/three-paths.png"  height="450" width="600">
 
 ---
 
-## Most Different Systems
+## Implications
 
-Examine cases that are different in all or most respects to understand a **common outcome**
+- State capacity is closely linked to conflict and the need to fight wars
 
----
+- State-building takes a long time
 
-<img src="/media/mds1.jpg" height="450" width="600">
-
----
-
-<img src="/media/mds2.jpg" height="450" width="600">
+- The sources of state wealth have an impact on how coercive and bureaucratic a state become
 
 ---
 
-<img src="/media/mds3.jpg"  height="450" width="600">
+## Critical States
 
----
-
-## Quantitative Analysis 
-
-Employs statistical correlations to demonstrate relationships between IVs & DVs
-
-Less about...
-
-{{% fragment %}} Deterministic if-then statements  {{% /fragment %}}
-{{% fragment %}} More about...  {{% /fragment %}}
-{{% fragment %}} Probabilistic statements regarding likelihood {{% /fragment %}}
-
----
-
-## Types of Correlation
-
-<style>
-.container{
-    display: flex;
-}
-.col{
-    flex: 1;
-}
-</style>
-
-<div class="container"> 
-
-<div class="col">
-Positive
-<img src="/media/wealth-dem.jpg">
-</div>
-
-<div class="col">
-Negative
-<img src="/media/oil-dem.jpg">
-</div>
-
-</div>
-
----
-
-## Division of Labor
-
-- Qualitative Studies
-  - Good for generating hypotheses and positing mechanisms
-  - Bad for testing generalizability
-- Quantitative Studies
-  - Good for testing generalizability
-  - Bad for helping to develop hypotheses or getting at “on the ground” reality
+<img src="/media/fragility.png" height="500" width="750">
 
 --- 
+
+Challenges to legitimacy of African states:
+
+{{% fragment %}} Large countries  {{% /fragment %}}
+{{% fragment %}} Dispersed populations  {{% /fragment %}}
+{{% fragment %}} Arbitrary borders {{% /fragment %}}
+
+--- 
+
+## Power projection 
+
+<img src="/media/power-projection.png"  height="500" width="450">
+
+---
+
+<img src="/media/nigeria.png"  height="600" width="550">
+
+---
+
+## Economic Consequences 
+
+<img src="/media/fragility-gdp.png">
+
+---
+
+## Security Consequences 
+
+<img src="/media/conflict-region.png">
+
+---
+
+<img src="/media/deaths-by-country.png">
+
+---
+
+<img src="/media/violence-type.png">
+
+---
+
+<img src="/media/fatalities-rwanda.png">
+
+---
+
+<img src="/media/fatalities-nrwanda.png">
+
+---
+
+<img src="/media/conflict-type.png">
+
+---
+
+<img src="/media/conflict-gov-territory.png">
+
+---
+
+<img src="/media/diversity-conflict.png">
+
+---
+
+<img src="/media/diversity-growth.png">
+
+---
 
 ## Conclusion
 

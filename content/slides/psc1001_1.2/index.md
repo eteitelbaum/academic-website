@@ -6,7 +6,7 @@ date: "2021-05-20T00:00:00Z"
 slides:
   highlight_style: dracula
   theme: black
-summary: An overview of the field of comparative politics
+summary: An introduction to methods used in the field of comparative politics
 tags: 
 - Comparative Politics
 - PSC 1001

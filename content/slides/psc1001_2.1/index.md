@@ -6,7 +6,7 @@ date: "2021-05-25T00:00:00Z"
 slides:
   highlight_style: dracula
   theme: black
-summary: An overview of the field of comparative politics
+summary: An introduction to the concept of a state
 tags: 
 - Comparative Politics
 - PSC 1001

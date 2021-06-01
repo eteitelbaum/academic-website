@@ -100,8 +100,15 @@ title: Lecture 3.1--Ethnicity and Nationalism
 {{% fragment %}} Fukuyama...  {{% /fragment %}}
 {{% fragment %}} Or Huntington? {{% /fragment %}}
 
-
 --- 
+
+<img src="/media/conflict-type.png">
+
+---
+
+<img src="/media/democratizing-vdem.png">
+
+---
 
 ## Ethnicity and the Economy
 

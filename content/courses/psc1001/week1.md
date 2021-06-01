@@ -1,16 +1,11 @@
 ---
 title: Comparative Politics and the Comparative Method
 linktitle: Week 1
-date: "2021-01-09"
-lastmod: "2021-01-09"
+lastmod: "2021-06-01"
 draft: false  
 toc: false  
 type: book  
-menu:
-  psc3192w:
-    name: Week 1
-    weight: 20
-slides: psc1001_1.1
+weight: 20
 ---
 
 ## Content

@@ -9,7 +9,7 @@ draft: false
 menu:
   psc1001:
     name: Overview
-    weight: 1
+    weight: 10
 type: book
 weight: 10
 ---

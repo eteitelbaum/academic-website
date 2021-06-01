@@ -1,16 +1,11 @@
 ---
 title: States, State Capacity and State Fragility
 linktitle: Week 2
-date: "2021-01-09"
-lastmod: "2021-01-09"
+lastmod: "2021-06-01"
 draft: false  
 toc: false  
 type: book  
-menu:
-  psc3192w:
-    name: Week 2
-    weight: 30
-slides: psc1001_1.1
+weight: 30
 ---
 
 ## Content

@@ -18,7 +18,6 @@ title: Lecture 3.2--Constitutional Design for Divided Societies
 - There are basically two perspectives we want to understand
   - Fearon & Laitin (2003)
   - Cederman et. al. (2011)
-  
 - Discuss
   - Are diverse societies likely to experience conflict? 
   - What are "horizontal inequalities" and how do they matter for conflict?
@@ -29,10 +28,8 @@ title: Lecture 3.2--Constitutional Design for Divided Societies
 
 - Electoral systems
   - Majoritarian vs. proportional
-  
 - Centralization of Authority
   - Federal vs. unitary
-  
 - Executive authority
   - Presidential vs. parliamentary 
   
@@ -43,7 +40,6 @@ title: Lecture 3.2--Constitutional Design for Divided Societies
 - ‘First past the post’ (FPTP)
   - One winner per district
   - Examples: U.S., U.K., Canada
-
 - Duverger’s law
   - n + 1 rule
   - SMD tends toward two party competition
@@ -54,16 +50,16 @@ title: Lecture 3.2--Constitutional Design for Divided Societies
 
 {{< youtube s7tWHJfhiyo >}}
 
+{{< speaker_note >}}
 How might a FPTP system be problematic in a multi-ethnic society?
+{{< /speaker_note >}}
 
 ---
 
 ## Proportional Representation (PR)
 
 - Number of seats based on % of votes won by *party*
-
 - Voters vote for party, which fields a *list* of candidates
-
 - Closed list PR = most common
   - Party leaders decide composition of list
   - No write-ins or reordering of candidates
@@ -74,7 +70,9 @@ How might a FPTP system be problematic in a multi-ethnic society?
 
 {{< youtube QT0I-sdoSXU >}}
 
+{{< speaker_note >}}
 How would a PR system help to promote inclusion of minority groups? Does PR have any downsides?  
+{{< /speaker_note >}}
 
 ---
 
@@ -83,7 +81,6 @@ How would a PR system help to promote inclusion of minority groups? Does PR have
 - Emphasis: direct representation of minority interests
   - Power sharing
   - Group autonomy
-
 - Ideal system 
   - Parliamentary with PR
   - Presidentialism not okay
@@ -96,7 +93,6 @@ How would a PR system help to promote inclusion of minority groups? Does PR have
 - ‘Centripetal’--directed towards the center
   - Emphasizes national unity
   - Common ground
-  
 - Ideal system
   - Federalism = divisive
   - Presidentialism okay
@@ -107,13 +103,12 @@ How would a PR system help to promote inclusion of minority groups? Does PR have
 ## Instant Runoff Voting
 
 - AKA "alternative vote", "ranked choice"
-
 - Rank candidates (1st, 2nd, 3rd)
   - No clear winner, votes of losing candidate redistributed among other candidates
-  
 - Majoritarian, but minimizes ‘wasted votes’
   - 1st preferences for kin and clan
   - Subsequent preferences issue-based
+- [Single Transferable Vote](https://youtu.be/l8XOZJkozfI) employs a similar runoff concept but for multi-member districts. 
 
 ---
 
@@ -121,29 +116,25 @@ How would a PR system help to promote inclusion of minority groups? Does PR have
 
 {{< youtube 3Y3jE3B8HsE >}}
 
-[Single Transferable Vote](https://youtu.be/l8XOZJkozfI) employs a similar runoff concept but for multimember districts. 
-
 ---
 
-<img src="/media/alternative_vote.png" height="550" width="700">
+<img src="/media/alternative_vote.png" height="450" width="600">
 
 RCV used historically in U.S. states as well as Australia (parliament) and Ireland (president). 
 
 ---
 
-## Discuss in small groups
-
---- 
-
 ## Ethnic Divisions in Iraq
 
-<img src="/media/iraq-divisions.png" height="600" width="450">
+<img src="/media/iraq-divisions.png" height="500" width="400">
 
+{{< speaker_note >}}
 Shia Arabs (60%) orange); Sunni Arabs (20%) green; Kurds (17%) blue
+{{< /speaker_note >}}
 
 ---
 
-## Iraq Case
+## Iraq Case (Small Groups)
 
 {{% fragment %}} What system of government would work?  {{% /fragment %}}
 {{% fragment %}} Parliamentary or presidential? {{% /fragment %}}
@@ -168,9 +159,11 @@ Shia Arabs (60%) orange); Sunni Arabs (20%) green; Kurds (17%) blue
 
 ## Devolution
 
-<img src="/media/oil-fields.png" height="550" width="700"> 
+<img src="/media/oil-fields.png" height="450" width="600"> 
 
+{{< speaker_note >}}
 Fear with devolution is location of oil fields/secession
+{{< /speaker_note >}}
 
 --- 
 ## Conclusion

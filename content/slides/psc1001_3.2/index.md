@@ -13,25 +13,111 @@ tags:
 title: Lecture 3.2--Constitutional Design for Divided Societies
 ---
 
-## 
+## Ethnicity and Conflict
+
+- There are basically two perspectives we want to understand
+  - Fearon & Laitin (2003)
+  - Cederman et. al. (2011)
+  
+- Discuss
+  - Are diverse societies likely to experience conflict? 
+  - What are "horizontal inequalities" and how do they matter for conflict?
   
 ---
 
-## First Past the Post
+## Role of Political Systems
+
+- Electoral systems
+  - Majoritarian vs. proportional
+  
+- Centralization of Authority
+  - Federal vs. unitary
+  
+- Executive authority
+  - Presidential vs. parliamentary 
+  
+--- 
+
+## Majoritarian Systems
+
+- ‘First past the post’ (FPTP)
+  - One winner per district
+  - Examples: U.S., U.K., Canada
+
+- Duverger’s law
+  - n + 1 rule
+  - SMD tends toward two party competition
+
+---
+
+## First Past the Post 
 
 {{< youtube s7tWHJfhiyo >}}
 
-How might a FTPT system be problematic in a multi-ethnic society?
+How might a FPTP system be problematic in a multi-ethnic society?
 
 ---
+
+## Proportional Representation (PR)
+
+- Number of seats based on % of votes won by *party*
+
+- Voters vote for party, which fields a *list* of candidates
+
+- Closed list PR = most common
+  - Party leaders decide composition of list
+  - No write-ins or reordering of candidates
+
+--- 
 
 ## Example of PR (MMP)
 
 {{< youtube QT0I-sdoSXU >}}
 
+How would a PR system help to promote inclusion of minority groups? Does PR have any downsides?  
+
 ---
 
+## Consociationalism (Lijphart)
+
+- Emphasis: direct representation of minority interests
+  - Power sharing
+  - Group autonomy
+
+- Ideal system 
+  - Parliamentary with PR
+  - Presidentialism not okay
+  - Federalism
+
+--- 
+
+## Centripetalism (Horowitz)
+
+- ‘Centripetal’--directed towards the center
+  - Emphasizes national unity
+  - Common ground
+  
+- Ideal system
+  - Federalism = divisive
+  - Presidentialism okay
+  - Instant runoff voting 
+
+--- 
+
 ## Instant Runoff Voting
+
+- AKA "alternative vote", "ranked choice"
+
+- Rank candidates (1st, 2nd, 3rd)
+  - No clear winner, votes of losing candidate redistributed among other candidates
+  
+- Majoritarian, but minimizes ‘wasted votes’
+  - 1st preferences for kin and clan
+  - Subsequent preferences issue-based
+
+---
+
+## IRV in the Animal Kingdom
 
 {{< youtube 3Y3jE3B8HsE >}}
 
@@ -39,21 +125,54 @@ How might a FTPT system be problematic in a multi-ethnic society?
 
 ---
 
-<img src="/media/cross-cutting.png" height="550" width="700">
+<img src="/media/alternative_vote.png" height="550" width="700">
+
+RCV used historically in U.S. states as well as Australia (parliament) and Ireland (president). 
 
 ---
-## Discuss in small groups
 
-{{% fragment %}} Who was Right?  {{% /fragment %}}
-{{% fragment %}} Fukuyama...  {{% /fragment %}}
-{{% fragment %}} Or Huntington? {{% /fragment %}}
+## Discuss in small groups
 
 --- 
 
+## Ethnic Divisions in Iraq
 
+<img src="/media/iraq-divisions.png" height="600" width="450">
+
+Shia Arabs (60%) orange); Sunni Arabs (20%) green; Kurds (17%) blue
 
 ---
 
+## Iraq Case
+
+{{% fragment %}} What system of government would work?  {{% /fragment %}}
+{{% fragment %}} Parliamentary or presidential? {{% /fragment %}}
+{{% fragment %}} Electoral system? {{% /fragment %}}
+{{% fragment %}} Federal or unitary?  {{% /fragment %}}
+{{% fragment %}} Refer to video "Losing Iraq" {{% /fragment %}}
+
+--- 
+
+## Iraqi National Assembly
+
+- AKA ‘Council of Representatives
+  - Closed list PR
+  - 275 seats
+  - 230 allocated based on number of registered voters in Iraq’s 18 ‘governates’
+  - 45 ‘compensatory’ seats
+  - 25% reserved for women
+
+- Does PR exacerbate ethnic divisions? 
+
+---
+
+## Devolution
+
+<img src="/media/oil-fields.png" height="550" width="700"> 
+
+Fear with devolution is location of oil fields/secession
+
+--- 
 ## Conclusion
 
 

@@ -19,6 +19,7 @@ projects: []
 
 ```{r setup, include = FALSE}
 library(Statamarkdown)
+library(reticulate)
 stataexe <- "C:/Program Files/Stata17/StataBE-64.exe"
 knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 ```
@@ -37,4 +38,17 @@ Second code block:
 
 ```{stata second-Stata}
 regress price gpm
+```
+
+## R
+
+```{r r-experiment}
+x = 2*3
+print(x)
+```
+
+## Python
+
+```{python python-experiment}
+print("hello world")
 ```

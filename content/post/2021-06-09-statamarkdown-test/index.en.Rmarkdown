@@ -1,0 +1,40 @@
+---
+title: Statamarkdown Test
+author: Emmanuel Teitelbaum
+date: '2021-06-09'
+slug: statamarkdown-test
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-06-09T10:56:06-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include = FALSE}
+library(Statamarkdown)
+stataexe <- "C:/Program Files/Stata17/StataBE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+```
+
+## Stata
+
+First code block:
+
+```{stata first-Stata, collectcode=TRUE}
+sysuse auto
+generate gpm = 1/mpg
+summarize price gpm
+```
+
+Second code block:
+
+```{stata second-Stata}
+regress price gpm
+```

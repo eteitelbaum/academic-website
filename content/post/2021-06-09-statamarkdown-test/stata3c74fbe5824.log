@@ -1,8 +1,0 @@
-
-
-. regress price gpm
-no variables defined
-r(111);
-
-end of do-file
-r(111);

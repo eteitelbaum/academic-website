@@ -1,0 +1,82 @@
+---
+title: Using Stata with Markdown
+subtitle: What are your options? 
+author: Emmanuel Teitelbaum
+date: '2021-06-09'
+slug: stata-and-markdown
+categories: []
+tags: 
+  - Atom
+  - Hydrogen
+  - Stata kernel
+  - language-markdown
+  - Statamarkdown
+  - Markstat
+  - Jupyter
+  - PyStata
+summary: ''
+authors: []
+lastmod: '2021-06-09T10:56:06-04:00'
+featured: no
+image:
+  caption: 'Original collage by Emmanuel Teitelbaum'
+  focal_point: ''
+  preview_only: no
+projects: []
+draft: TRUE
+---
+
+```{r setup, include = FALSE}
+library(Statamarkdown)
+stataexe <- "C:/Program Files/Stata17/StataBE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+```
+
+Frequently when I am working in Stata, I find myself wanting to avail myself of the capabilities inherent in R Markdown. I want to be able to intersperse code with text and share my notes with other people in an attractive .html or .pdf document. It is also really helpful from a workflow standpoint to be able to run code snippets or to preview the document that I am writing. 
+
+At one point, I thought my solution would just abandon Stata entirely for R. But I found that I kept having to go back to Stata for certain types of analysis and, because some of my earlier projects were done in Stata, it just makes sense to keep doing them in Stata. 
+
+A few weeks ago, I felt I just couldn't stand working in Stata's .do file editor anymore, so I began a quest to figure out how I could best integrate Stata with Markdown in other environments. 
+
+Below is are the options I came across. I start with the ones I like best and proceed in descending order from there.  
+
+## Hydrogen in Atom 
+
+I really love this setup. Atom is a really cool text editor. You can edit almost any language or document type, the color schemes are attractive and the keyboard shortcuts really help with efficiency. 
+
+The best thing about Atom is that you can use the [Hydrogen package](https://atom.io/packages/hydrogen) to run code interactively. You can even run code for multiple kernels/languages in the [same document](https://blog.nteract.io/hydrogen-introducing-rich-multi-language-documents-b5057ff34efc).    
+
+To create an interactive document with Stata, you need to install Kyle Barron's [stata_kernel](https://kylebarron.dev/stata_kernel/) and the [language-markdown](https://atom.io/packages/language-markdown)package. `stata_kernel` is the Jupyter kernel for Stata that allows the code to run interactively while Language Markdown is an Atom package that provides support for Markdown (including R Markdown). I also installed [Markdown Preview Plus (MPP)](https://atom.io/packages/markdown-preview-plus), which provides a live updated preview of your document.  
+
+In case you are not familiar with Atom, each Jupyter kernel that you use is going to be installed in a slightly different way. For the `stata_kernel`, follow the instructions that Kyle Barron provides. You install Atom packages in Atom by hitting `ctrl + shift + p` in Windows/Linux or `cmd + shif + p` in macOS.      
+
+Once you get everything set up, you should be able to intersperse your code with text and preview the resulting document like this:    
+
+
+
+The only shortcoming here is that you cannot easily export the code along with the text to a share-able .html or .pdf document. For this, you can open your Markdown document in R and use the Statamarkdown package.   
+
+## Statamarkdown 
+
+With Doub Hemken's [Statamarkdown](https://github.com/Hemken/Statamarkdown), you can knit your .Rmd or .RMarkdown file in the usual way to create an .html or .pdf document or blog post. There is a nice tutorial on how to use it [here](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html). 
+
+At the time I am writing this post, Statamarkdown is only good for producing documents and [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Another barrier is that Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option, like this:   
+
+First code block:
+
+```{stata first-Stata, collectcode=TRUE}
+sysuse auto
+generate gpm = 1/mpg
+summarize price gpm
+```
+
+Second code block:
+
+```{stata second-Stata}
+regress price gpm
+```
+
+The process creates a bunch of .do and .log files that you have to back and clean up afterwards, but it does achieve the desired objective!
+
+## Markstat
+

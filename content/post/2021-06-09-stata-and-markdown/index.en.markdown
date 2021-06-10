@@ -1,21 +1,24 @@
 ---
-title: Statamarkdown Test
+title: Using Stata with Markdown
+subtitle: What are your options? 
 author: Emmanuel Teitelbaum
 date: '2021-06-09'
-slug: statamarkdown-test
+slug: stata-and-markdown
 categories: []
 tags: []
-subtitle: ''
 summary: ''
 authors: []
 lastmod: '2021-06-09T10:56:06-04:00'
 featured: no
 image:
-  caption: ''
+  caption: 'Original "artwork" by Emmanuel Teitelbaum'
   focal_point: ''
   preview_only: no
 projects: []
+draft: TRUE
 ---
+
+
 
 
 

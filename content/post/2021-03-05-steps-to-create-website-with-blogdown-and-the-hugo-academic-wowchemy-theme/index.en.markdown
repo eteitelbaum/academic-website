@@ -12,7 +12,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-05-26' 
+lastmod: '2021-06-11' 
 featured: no
 image:
   caption: '<span>Photo by <a href="https://unsplash.com/@daniel_von_appen?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel von Appen</a> on <a href="https://unsplash.com/s/photos/steps?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -49,4 +49,13 @@ new_site(theme = "wowchemy/starter-academic"
 
 10. Commit changes with `usethis::use_git()` and push them to GitHub using the little green arrow in RStudio's Git window.
 
-11. Publish the site to Netlify. Sign up using your GitHub account, then log in and select `New site from Git > Continuous Deployment: GitHub`. Select the repository with your site and deploy it! 
+11. Publish the site to Netlify. Sign up using your GitHub account, then log in and select `New site from Git > Continuous Deployment: GitHub`. Select the repository with your site and deploy it!
+
+<script src="https://utteranc.es/client.js"
+        repo="eteitelbaum/academic-website"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+

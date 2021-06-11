@@ -129,3 +129,12 @@ Stata is promoting its [pystata](https://www.stata.com/python/pystata/install.ht
 I also tried using pystata in conjunction with the reticulate package in R, which I definitely do not recommend! 
  
 I hope you find a Stata/Markdown solution that works for you. Let me know what you choose! 
+
+<script src="https://utteranc.es/client.js"
+        repo="eteitelbaum/academic-website"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+

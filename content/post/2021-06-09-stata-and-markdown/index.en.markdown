@@ -28,7 +28,7 @@ draft: FALSE
 
 
 
-Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. It is also really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time. 
+Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. I also find it really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time like you can in an R Notebook. 
 
 At one point, I thought my solution would just abandon Stata entirely for R. But I find that I still need Stata for certain kinds of analysis, and for some projects there is enough inertia that it makes sense to just keep doing them in Stata.  
 
@@ -52,7 +52,7 @@ The only shortcoming here is that you cannot easily export the code along with t
 
 ## Statamarkdown in R
 
-With Doub Hemken's [Statamarkdown](https://github.com/Hemken/Statamarkdown), you can knit your .Rmd or .RMarkdown file in the usual way to create a document like an .html or .pdf or a blog post. There is a nice tutorial on how to use it [here](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html). 
+With Doug Hemken's [Statamarkdown](https://github.com/Hemken/Statamarkdown), you can knit your .Rmd or .RMarkdown file in the usual way to create a document like an .html or .pdf or a blog post. There is a nice tutorial on how to use it [here](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html). 
 
 At the time I am writing this post, Statamarkdown is good for producing documents but [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option. Here is what the output looks like: 
 

@@ -85,11 +85,11 @@ Germán Rodriguez's [`markstat` command](https://data.princeton.edu/stata/markdo
 ```
 # Stata and Markdown
 
-Let's write some markdown-formatted text and see what happens.
+Write some Markdown-formatted text and see what happens.
 
 ## Run Stata Code
 
-Now let's try running some Stata code:
+Now try running some Stata code:
 
   sysuse auto, clear
   summarize mpg weight
@@ -97,7 +97,7 @@ Now let's try running some Stata code:
 
 ## To Do List 
 
-Let's follow up on it by doing the following:
+That was a great analysis. Next we will do the following:
 
 1. One thing
 2. Two thing

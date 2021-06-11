@@ -32,7 +32,7 @@ stataexe <- "C:/Program Files/Stata17/StataBE-64.exe"
 knitr::opts_chunk$set(engine.path=list(stata=stataexe))
 ```
 
-Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. It is also really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time. 
+Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. I also find it really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time like you can in an R Notebook. 
 
 At one point, I thought my solution would just abandon Stata entirely for R. But I find that I still need Stata for certain kinds of analysis, and for some projects there is enough inertia that it makes sense to just keep doing them in Stata.  
 

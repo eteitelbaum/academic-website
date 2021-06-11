@@ -82,7 +82,7 @@ The process creates a bunch of .do and .log files that you have to back and clea
 
 Germán Rodriguez's [`markstat` command](https://data.princeton.edu/stata/markdown) is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With `markstat` you intersperse Markdown annotations with Stata code like this: 
 
-```
+```{markdown}
 # Stata and Markdown
 
 Write some Markdown-formatted text and see what happens.

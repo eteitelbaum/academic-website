@@ -52,7 +52,7 @@ In case you are not familiar with Atom, each Jupyter kernel that you use is goin
 
 Once you get everything set up, you should be able to intersperse your code with text and preview the resulting document like this:    
 
-![](images/stata-markdown.gif)
+![](/media/stata-markdown.gif)
 
 The only shortcoming here is that you cannot easily export the code along with the text to a shareable HTML or PDF document. For this, you can open your Markdown document in R and use the Statamarkdown package.   
 

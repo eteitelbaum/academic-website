@@ -28,13 +28,11 @@ draft: FALSE
 
 
 
-Frequently when I am working in Stata, I find myself wanting to avail myself of the capabilities inherent in R Markdown. I like to be able to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. It is also really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing. 
+Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. It is also really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time. 
 
-At one point, I thought my solution would just abandon Stata entirely for R. But I find that I keep going back to Stata for certain kinds of analysis and, because some of my earlier projects were done in Stata, it just makes sense to keep doing them in Stata. 
+At one point, I thought my solution would just abandon Stata entirely for R. But I find that I still need Stata for certain kinds of analysis, and for some projects there is enough inertia that it makes sense to just keep doing them in Stata.  
 
-A little while back, I just couldn't stand working in Stata's .do file editor anymore, so I started a quest to figure out how I could best integrate Stata with Markdown in other environments. 
-
-Below is are the options I came across. I discuss three that I really like and then mention a few options that I didn't end up using.  
+A little while back, though, I found I just couldn't stand working in Stata's .do file editor anymore. So I started a quest to figure out how I could best integrate Stata with Markdown in other environments. Here are some of the options I came across. 
 
 ## Hydrogen in Atom 
 
@@ -86,7 +84,7 @@ At the time I am writing this post, Statamarkdown is good for producing document
 ------------------------------------------------------------------------------
 ```
 
-Statamarkdown creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to use Stata in an R Markdown framework. 
+Statamarkdown creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to produce Stata ouput in an HTML or PDF document. 
 
 ## Markstat in Stata
 

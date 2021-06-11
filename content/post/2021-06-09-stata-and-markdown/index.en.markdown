@@ -46,7 +46,7 @@ To create an interactive document with Stata, you need to install Kyle Barron's 
 
 In case you are not familiar with Atom, each Jupyter kernel that you use is going to be installed in a slightly different way. For the `stata_kernel`, follow the instructions that Kyle Barron provides. You install Atom packages in Atom by hitting `ctrl` + `shift` + `p` in Windows/Linux or `cmd` + `shift` + `p` in macOS.      
 
-Once you get everything set up, you should be able to intersperse your code with text and preview the resulting document like this:    
+Once you have everything set up, you should be able to intersperse your code with text and preview the resulting document like this:    
 
 ![](/media/stata-markdown.gif)
 

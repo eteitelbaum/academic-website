@@ -30,11 +30,11 @@ draft: FALSE
 
 Frequently when I am working in Stata, I find myself wanting to avail myself of the capabilities inherent in R Markdown. I like to be able to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. It is also really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing. 
 
-At one point, I thought my solution would just abandon Stata entirely for R. But I found that I kept having to go back to Stata for certain types of analysis and, because some of my earlier projects were done in Stata, it just makes sense to keep doing them in Stata. 
+At one point, I thought my solution would just abandon Stata entirely for R. But I find that I keep going back to Stata for certain kinds of analysis and, because some of my earlier projects were done in Stata, it just makes sense to keep doing them in Stata. 
 
-A few weeks ago, I felt I just couldn't stand working in Stata's .do file editor anymore, so I began a quest to figure out how I could best integrate Stata with Markdown in other environments. 
+A little while back, I just couldn't stand working in Stata's .do file editor anymore, so I started a quest to figure out how I could best integrate Stata with Markdown in other environments. 
 
-Below is are the options I came across. I start with the ones I like best and proceed in descending order from there.  
+Below is are the options I came across. I discuss three that I really like and then mention a few options that I didn't end up using.  
 
 ## Hydrogen in Atom 
 
@@ -42,7 +42,7 @@ I really love this setup. Atom is such a cool text editor. You can edit almost a
 
 The best thing about Atom is that you can use the [Hydrogen package](https://atom.io/packages/hydrogen) to run code interactively. You can even run code for multiple kernels/languages in the [same document](https://blog.nteract.io/hydrogen-introducing-rich-multi-language-documents-b5057ff34efc).    
 
-To create an interactive document with Stata, you need to install Kyle Barron's [stata_kernel](https://kylebarron.dev/stata_kernel/) and the [language-markdown](https://atom.io/packages/language-markdown)package. `stata_kernel` is the Jupyter kernel for Stata that allows the code to run interactively while Language Markdown is an Atom package that provides support for Markdown (including R Markdown). I also installed [Markdown Preview Plus (MPP)](https://atom.io/packages/markdown-preview-plus), which provides a live updated preview of your document.  
+To create an interactive document with Stata, you need to install Kyle Barron's [stata_kernel](https://kylebarron.dev/stata_kernel/) and the [Language Markdown](https://atom.io/packages/language-markdown) package. `stata_kernel` is the Jupyter kernel for Stata that allows the code to run interactively while Language Markdown is an Atom package that provides support for Markdown (including R Markdown). I also installed [Markdown Preview Plus (MPP)](https://atom.io/packages/markdown-preview-plus), which provides a live updated preview of your document.  
 
 In case you are not familiar with Atom, each Jupyter kernel that you use is going to be installed in a slightly different way. For the `stata_kernel`, follow the instructions that Kyle Barron provides. You install Atom packages in Atom by hitting `ctrl` + `shift` + `p` in Windows/Linux or `cmd` + `shift` + `p` in macOS.      
 
@@ -101,7 +101,7 @@ The process creates a bunch of .do and .log files that you have to back and clea
 
 ## Markstat in Stata
 
-Germán Rodriguez's [`markstat` command](https://data.princeton.edu/stata/markdown) is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With `markstat` you intersperse Markdown annotations with Stata code like this: 
+Germán Rodriguez's [markstat](https://data.princeton.edu/stata/markdown) is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With `markstat` you intersperse Markdown annotations with Stata code like this: 
 
 
 ```stata
@@ -131,14 +131,14 @@ Etc....
 
 The code gets identified with indentations rather than back ticks. You then need to save it as a script (.stmd) file and then process the file by running the `markstat` command in Stata. You also need to have Pandoc installed. 
 
-Markstat definitely produces attractive documents and slides and is a better solution than Statamarkdown in R if that is all you want to do. In my case, I really wanted to be able to include Stata code and results in .RMarkdown files so that I could produce posts like this one. 
+`markstat` definitely produces attractive documents and slides and is a better solution than Statamarkdown in R if that is all you need to do. 
 
 ## Other Solutions
 
 There are a few other solutions I looked at but did not end up not using. 
 
-Stata is promoting its [**pystata**](https://www.stata.com/python/pystata/install.html) Python package, which allows you to run Stata in an IPython environment like Jupyter notebooks. There is also Stata's [`dyndoc`](https://www.stata.com/manuals/rptdyndoc.pdf) command, which converts a text file into an HTML file or Word document. 
+Stata is promoting its [pystata](https://www.stata.com/python/pystata/install.html) Python package, which allows you to run Stata in an IPython environment like Jupyter notebooks. There is also Stata's [`dyndoc`](https://www.stata.com/manuals/rptdyndoc.pdf) command, which converts a text file into an HTML file or Word document. 
 
-I also tried using **pystata** in conjunction with the **reticulate** package in R, which I definitely do not recommend! 
+I also tried using pystata in conjunction with the reticulate package in R, which I definitely do not recommend! 
  
-I hope you find a Stata/Markdown solution that works for you. Let me know what you choose and if there is something I missed here. 
+I hope you find a Stata/Markdown solution that works for you. Let me know what you choose! 

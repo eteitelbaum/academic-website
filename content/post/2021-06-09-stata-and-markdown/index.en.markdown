@@ -56,55 +56,43 @@ The only shortcoming here is that you cannot easily export the code along with t
 
 With Doub Hemken's [Statamarkdown](https://github.com/Hemken/Statamarkdown), you can knit your .Rmd or .RMarkdown file in the usual way to create a document like an .html or .pdf or a blog post. There is a nice tutorial on how to use it [here](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html). 
 
-At the time I am writing this post, Statamarkdown is good for producing documents but [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option, like this:   
-
-First code block:
+At the time I am writing this post, Statamarkdown is good for producing documents but [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option. Here is what the output looks like: 
 
 
 ```stata
-sysuse auto
-generate gpm = 1/mpg
-summarize price gpm
+  sysuse auto, clear
+  summarize mpg weight
+  regress mpg weight
 ```
 
 ```
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-       price |         74    6165.257    2949.496       3291      15906
-         gpm |         74    .0501928    .0127986   .0243902   .0833333
-```
+         mpg |         74     21.2973    5.785503         12         41
+      weight |         74    3019.459    777.1936       1760       4840
 
-Second code block:
-
-
-```stata
-regress price gpm
-```
-
-```
       Source |       SS           df       MS      Number of obs   =        74
--------------+----------------------------------   F(1, 72)        =     35.95
-       Model |   211486574         1   211486574   Prob > F        =    0.0000
-    Residual |   423578822        72  5883039.19   R-squared       =    0.3330
--------------+----------------------------------   Adj R-squared   =    0.3238
-       Total |   635065396        73  8699525.97   Root MSE        =    2425.5
+-------------+----------------------------------   F(1, 72)        =    134.62
+       Model |   1591.9902         1   1591.9902   Prob > F        =    0.0000
+    Residual |  851.469256        72  11.8259619   R-squared       =    0.6515
+-------------+----------------------------------   Adj R-squared   =    0.6467
+       Total |  2443.45946        73  33.4720474   Root MSE        =    3.4389
 
 ------------------------------------------------------------------------------
-       price | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+         mpg | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
 -------------+----------------------------------------------------------------
-         gpm |     132990   22180.86     6.00   0.000     88773.24    177206.7
-       _cons |  -509.8827   1148.469    -0.44   0.658    -2799.314    1779.548
+      weight |  -.0060087   .0005179   -11.60   0.000    -.0070411   -.0049763
+       _cons |   39.44028   1.614003    24.44   0.000     36.22283    42.65774
 ------------------------------------------------------------------------------
 ```
 
-The process creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to use Stata in an R Markdown framework. 
+Statamarkdown creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to use Stata in an R Markdown framework. 
 
 ## Markstat in Stata
 
 Germán Rodriguez's [markstat](https://data.princeton.edu/stata/markdown) is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With `markstat` you intersperse Markdown annotations with Stata code like this: 
 
-
-```stata
+````markdown
 # Stata and Markdown
 
 Write some Markdown-formatted text and see what happens.
@@ -126,8 +114,9 @@ That was a great analysis. Next we will do the following:
 3. Red thing
 4. Blue thing
 
-Etc.... 
-```
+Etc....
+
+````
 
 The code gets identified with indentations rather than back ticks. You then need to save it as a script (.stmd) file and then process the file by running the `markstat` command in Stata. You also need to have Pandoc installed. 
 

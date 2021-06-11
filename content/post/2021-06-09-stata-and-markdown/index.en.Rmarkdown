@@ -60,29 +60,21 @@ The only shortcoming here is that you cannot easily export the code along with t
 
 With Doub Hemken's [Statamarkdown](https://github.com/Hemken/Statamarkdown), you can knit your .Rmd or .RMarkdown file in the usual way to create a document like an .html or .pdf or a blog post. There is a nice tutorial on how to use it [here](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html). 
 
-At the time I am writing this post, Statamarkdown is good for producing documents but [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option, like this:   
+At the time I am writing this post, Statamarkdown is good for producing documents but [does not work](https://github.com/Hemken/Statamarkdown/issues/12) for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the `collectcode = TRUE` option. Here is what the output looks like: 
 
-First code block:
-
-```{stata first-Stata, collectcode=TRUE, echo = TRUE}
-sysuse auto
-generate gpm = 1/mpg
-summarize price gpm
+```{stata}
+  sysuse auto, clear
+  summarize mpg weight
+  regress mpg weight
 ```
 
-Second code block:
-
-```{stata second-Stata, echo = TRUE}
-regress price gpm
-```
-
-The process creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to use Stata in an R Markdown framework. 
+Statamarkdown creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to use Stata in an R Markdown framework. 
 
 ## Markstat in Stata
 
 Germán Rodriguez's [markstat](https://data.princeton.edu/stata/markdown) is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With `markstat` you intersperse Markdown annotations with Stata code like this: 
 
-```{stata third-stata, eval = FALSE}
+````markdown
 # Stata and Markdown
 
 Write some Markdown-formatted text and see what happens.
@@ -104,8 +96,9 @@ That was a great analysis. Next we will do the following:
 3. Red thing
 4. Blue thing
 
-Etc.... 
-```
+Etc....
+
+````
 
 The code gets identified with indentations rather than back ticks. You then need to save it as a script (.stmd) file and then process the file by running the `markstat` command in Stata. You also need to have Pandoc installed. 
 

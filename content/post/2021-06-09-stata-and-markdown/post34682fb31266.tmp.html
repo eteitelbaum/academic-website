@@ -1,0 +1,82 @@
+<p>Frequently when I am working in Stata, I find myself really missing the key features of R Markdown, like the ability to intersperse code with text and share my notes with other people in an attractive dynamic HTML or PDF document. I also find it really helpful from a workflow standpoint to be able to run code snippets in the text editor and to preview the document that I am writing in real time like you can in an R Notebook.</p>
+<p>At one point, I thought my solution would just abandon Stata entirely for R. But I find that I still need Stata for certain kinds of analysis, and for some projects there is enough inertia that it makes sense to just keep doing them in Stata.</p>
+<p>A little while back, though, I found I just couldn’t stand working in Stata’s .do file editor anymore. So I started a quest to figure out how I could best integrate Stata with Markdown in other environments. Here are some of the options I came across.</p>
+<div id="hydrogen-in-atom" class="section level2" number="0.1">
+<h2 number="0.1"><span class="header-section-number">0.1</span> Hydrogen in Atom</h2>
+<p>I really love this setup. Atom is such a cool text editor. You can edit almost any language or document type, the color schemes are attractive and the keyboard shortcuts really help with efficiency.</p>
+<p>The best thing about Atom is that you can use the <a href="https://atom.io/packages/hydrogen">Hydrogen package</a> to run code interactively. You can even run code for multiple kernels/languages in the <a href="https://blog.nteract.io/hydrogen-introducing-rich-multi-language-documents-b5057ff34efc">same document</a>.</p>
+<p>To create an interactive document with Stata, you need to install Kyle Barron’s <a href="https://kylebarron.dev/stata_kernel/">stata_kernel</a>, the <a href="https://atom.io/packages/language-stata">Language Stata</a> package and the <a href="https://atom.io/packages/language-markdown">Language Markdown</a> package. <code>stata_kernel</code> is the Jupyter kernel for Stata that allows the code to run interactively, Language Stata provides Stata lanugage support, and Language Markdown provides support for Markdown (including R Markdown). I also installed <a href="https://atom.io/packages/markdown-preview-plus">Markdown Preview Plus (MPP)</a>, which provides a live updated preview of your document.</p>
+<p>In case you are not familiar with Atom, each Jupyter kernel that you use is going to be installed in a slightly different way. For the <code>stata_kernel</code>, follow the instructions that Kyle Barron provides. You install Atom packages in Atom by hitting <code>ctrl</code> + <code>shift</code> + <code>p</code> in Windows/Linux or <code>cmd</code> + <code>shift</code> + <code>p</code> in macOS and typing <code>install packages</code> in the search field.</p>
+<p>Once you have everything set up, you will be able to intersperse your code with text and preview the resulting document like this:</p>
+<p><img src="/media/stata-markdown.gif" /></p>
+<p>The only shortcoming here is that you cannot easily export the code along with the text to a shareable HTML or PDF document. For this, you can open your Markdown document in R and use the Statamarkdown package.</p>
+</div>
+<div id="statamarkdown-in-r" class="section level2" number="0.2">
+<h2 number="0.2"><span class="header-section-number">0.2</span> Statamarkdown in R</h2>
+<p>With Doug Hemken’s <a href="https://github.com/Hemken/Statamarkdown">Statamarkdown</a>, you can knit your .Rmd or .RMarkdown file in the usual way to create a document like an .html or .pdf or a blog post. There is a nice tutorial on how to use it <a href="https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html">here</a>.</p>
+<p>At the time I am writing this post, Statamarkdown is good for producing documents but <a href="https://github.com/Hemken/Statamarkdown/issues/12">does not work</a> for running code interactively in a notebook. Also, Statamarkdown does not automatically remember what code you ran from one chunk to the next. In order to run a code chunk sequentially that builds on the previous chunk, you have to enable the <code>collectcode = TRUE</code> option. Here is what the output looks like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">sysuse</span> auto, <span class="kw">clear</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">summarize</span> mpg <span class="kw">weight</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">regress</span> mpg <span class="kw">weight</span></span></code></pre></div>
+<pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         mpg |         74     21.2973    5.785503         12         41
+      weight |         74    3019.459    777.1936       1760       4840
+
+      Source |       SS           df       MS      Number of obs   =        74
+-------------+----------------------------------   F(1, 72)        =    134.62
+       Model |   1591.9902         1   1591.9902   Prob &gt; F        =    0.0000
+    Residual |  851.469256        72  11.8259619   R-squared       =    0.6515
+-------------+----------------------------------   Adj R-squared   =    0.6467
+       Total |  2443.45946        73  33.4720474   Root MSE        =    3.4389
+
+------------------------------------------------------------------------------
+         mpg | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      weight |  -.0060087   .0005179   -11.60   0.000    -.0070411   -.0049763
+       _cons |   39.44028   1.614003    24.44   0.000     36.22283    42.65774
+------------------------------------------------------------------------------</code></pre>
+<p>Statamarkdown creates a bunch of .do and .log files that you have to back and clean up afterwards. Despite these limitations and minor hassles, Statamarkdown does achieve the desired objective of allowing you to produce Stata ouput in an HTML or PDF document.</p>
+</div>
+<div id="markstat-in-stata" class="section level2" number="0.3">
+<h2 number="0.3"><span class="header-section-number">0.3</span> Markstat in Stata</h2>
+<p>Germán Rodriguez’s <a href="https://data.princeton.edu/stata/markdown">markstat</a> is probably the best option if you want to produce a dynamic document but stay completely in the realm of Stata. With <code>markstat</code> you intersperse Markdown annotations with Stata code like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Stata and Markdown</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Write some Markdown-formatted text and see what happens.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run Stata Code</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Now try running some Stata code:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  sysuse auto, clear</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  summarize mpg weight</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  regress mpg weight</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## To Do List </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>That was a great analysis. Next we will do the following:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One thing</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Two thing</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Red thing</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Blue thing</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>Etc....</span></code></pre></div>
+<p>The code gets identified with indentations rather than back ticks. You then need to save it as a script (.stmd) file and then process the file by running the <code>markstat</code> command in Stata. You also need to have Pandoc installed.</p>
+<p><code>markstat</code> definitely produces attractive documents and slides and is a better solution than Statamarkdown in R if that is all you need to do.</p>
+</div>
+<div id="other-solutions" class="section level2" number="0.4">
+<h2 number="0.4"><span class="header-section-number">0.4</span> Other Solutions</h2>
+<p>There are a few other solutions I looked at but did not end up not using.</p>
+<p>Stata is promoting its <a href="https://www.stata.com/python/pystata/install.html">pystata</a> Python package, which allows you to run Stata in an IPython environment like Jupyter notebooks. There is also Stata’s <a href="https://www.stata.com/manuals/rptdyndoc.pdf"><code>dyndoc</code></a> command, which converts a text file into an HTML file or Word document.</p>
+<p>I also tried using pystata in conjunction with the reticulate package in R, which I definitely do not recommend!</p>
+<p>I hope you find a Stata/Markdown solution that works for you. Let me know what you choose!</p>
+<script src="https://utteranc.es/client.js"
+        repo="eteitelbaum/academic-website"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

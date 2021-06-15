@@ -19,7 +19,11 @@ title: Lecture 5.1--Women and Elections
 
 ---
 
-<img src="/media/women-in-professions.png" height="450" width="450">
+<img src="/media/women-historical.png" height="400" width="400">
+
+---
+
+<img src="/media/women-in-professions.png" height="450" width="600">
 
 ---
 
@@ -27,7 +31,7 @@ title: Lecture 5.1--Women and Elections
 
 --- 
 
-
+<img src="/media/women-in-govt.png" height="500" width="650">
 
 ---
 

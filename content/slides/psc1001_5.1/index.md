@@ -19,13 +19,17 @@ title: Lecture 5.1--Women and Elections
 
 ---
 
-<img src="/media/women-in-professions.png" height="450" width="600">
+<img src="/media/women-in-professions.png" height="450" width="450">
 
 ---
 
-<a href="https://www.pewresearch.org/fact-tank/2021/01/15/a-record-number-of-women-are-serving-in-the-117th-congress/ft_21-01-06_womenincongress_1a/"><img src="https://www.pewresearch.org/wp-content/uploads/2021/01/FT_21.01.06_WomenInCongress_1a.png?w=484"></a>
+<img src="/media/women-in-congress.png" height="600" width="450">
 
 --- 
+
+
+
+---
 
 ## Discussion 
 

@@ -34,16 +34,35 @@ title: Lecture 5.1--Women and Elections
 
 --- 
 
-<div class="container">
-  <img src="/media/women-in-govt.png" height="500" width="675">
-  <div class="bottom-right">Source = Wikipedia</div>
-</div> 
+<img src="/media/women-in-govt.png" height="500" width="675">
 
 ---
-## U.S. Compared With OECD Countries 
+## % of Lower House Seats Held by Women (Selected Countries)
+
+- Rwanda (61.3%)
+- New Zealand (48.3%)
+- Mexico (48.2%)
+- Nicaragua (47.3%)
+- Sweden (46%)
+- Denmark (39.7%)
+- Italy (35.7%)
+- Canada (29.6%)
+- **United States** (27.2%)
+- Japan (9.9%)
+
+Based on data from [iup.org](https://data.ipu.org/women-ranking?month=4&year=2021) 
 
 ---
-## U.S. Compared with Developing Countries
+## Global and Regional Averages
+
+- Americas (32%)
+- Europe (30.6%)
+- Sub-Saharan Africa (25.1%)
+- Asia (20.8%)
+- MENA (19.3%)
+- Pacific (18%)
+---
+
 
 
 ---

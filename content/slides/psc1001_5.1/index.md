@@ -33,7 +33,7 @@ title: Lecture 5.1--Women and Elections
 <img src="/media/women-in-govt.png" height="500" width="675">
 
 ---
-## % of Lower House Seats Held by Women (Selected Countries)
+## Seats Held by Women
 
 - Rwanda (61.3%)
 - New Zealand (48.3%)
@@ -49,7 +49,7 @@ title: Lecture 5.1--Women and Elections
 Based on data from [iup.org](https://data.ipu.org/women-ranking?month=4&year=2021) 
 
 ---
-## Global and Regional Averages
+## Regional Averages
 
 - Americas (32%)
 - Europe (30.6%)
@@ -100,7 +100,7 @@ Based on data from [iup.org](https://data.ipu.org/women-ranking?month=4&year=202
   - Candidate quotas
   - Reserved seats
 
-- Effectiveness: one study found quotas increased women's representation by 9% in parliaments
+- Effectiveness: one study found quotas increased women's representation by 9% 
 
 ---
 ## Cultural Factors 
@@ -143,7 +143,11 @@ Based on data from [iup.org](https://data.ipu.org/women-ranking?month=4&year=202
 ---
 ## Discussion 
 
+- With reference to Krook and Norris, what is the most compelling explanation for variations in women's representation? What is the best way forward in terms of boosting women's representation? 
 
+- With reference to Waylen, why is politics dominated by men in most countries? How does her explanation differ from that of Krook and Norris?  
+
+- Which explanation/framework is more compelling?
 
 --- 
 ## Conclusion

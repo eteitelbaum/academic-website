@@ -11,7 +11,6 @@ tags:
 - Comparative Politics
 - PSC 1001
 title: Lecture 5.1--Women and Elections
-
 ---
 
 ## Women in Politics

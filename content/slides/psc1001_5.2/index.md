@@ -18,7 +18,7 @@ title: Lecture 5.2--The Impact of Women's Leadership
 ---
 ## Descriptive Representation
 
-**Descriptive representation**: the idea that representatives should not only represent the political or economic interests of their constituents, but should also reflect the descriptive characteristics of the population.
+The idea that representatives should not only represent the political or economic interests of their constituents, but should also reflect the descriptive characteristics of the population.
 
 Can relate to any form of identity, including gender. 
 
@@ -53,7 +53,7 @@ Can relate to any form of identity, including gender.
 ---
 ## Family Policy in the OECD 
 
-<img src="/media/myrdal.jpg" height="600" width="450">
+<img src="/media/myrdal.jpg" height="500" width="375">
 
 Alva Myrdal
 

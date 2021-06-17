@@ -53,7 +53,7 @@ Can relate to any form of identity, including gender.
 ---
 ## Family Policy in the OECD 
 
-<img src="/media/myrdal.jpg" height="500" width="375">
+<img src="/media/myrdal.jpg" height="400" width="300">
 
 Alva Myrdal
 

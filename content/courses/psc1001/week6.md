@@ -1,5 +1,5 @@
 ---
-title: Women and Politics
+title: Political Economy
 linktitle: Week 6
 lastmod: "2021-06-14"
 draft: false  

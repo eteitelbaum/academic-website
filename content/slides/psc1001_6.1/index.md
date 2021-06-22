@@ -46,8 +46,8 @@ Examples?
 
 - Liberal—emphasize means tested social assistance
 	- Anglo-American countries (e.g. U.S., UK, Australia)
-- Corporatist—ranked system of social insurance, emphasis on the family, narrow provisioning
-	- Continental European countries (e.g. Austria, Germany, Switzerland)
+- Corporatist—ranked system of social insurance
+  - Continental European countries (e.g. Austria, Germany, Switzerland)
 - Social Democratic—universalistic, emphasis on full employment and broad provisioning         - Nordic countries (e.g. Denmark, Norway, Sweden)
 
 ---
@@ -114,7 +114,6 @@ Examples?
 - Can “democratic socialism” work in the United States
 	- Is it the American dream “for real”?
 	- Is it possible in a U.S. context
-	- Discuss in reference to the Alesina et. al. reading
 
 --- 
 # Conclusion

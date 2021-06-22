@@ -23,7 +23,7 @@ The study of how politics affects economic outcomes and, vice-versa, how economi
 ---
 ## The OECD 
 
-<img src="/media/oecd_member_states_map.png" height="500" width="675">
+<img src="/media/oecd_member_states_map.png" height="400" width="600">
 
 ---
 ## The Welfare State
@@ -37,21 +37,18 @@ Examples?
 
 - **Social policy**--The range of policies that governments use to promote welfare
 - **Social contract**--Implicit agreement to give up individual rights in exchange for social rights
-- **Social rights**--Rights to basic services like education, health care and a minimal standard of living (basic income)
+- **Social rights**--Rights to basic services like education, health care and a minimal standard of living 
 - **Decommodification**--The ability of a person to opt out of working 
-- **Universalism**--Benfits provided in such a way that everyone has an equal ability to access them
+- **Universalism**--Benefits provided in such a way that everyone has an equal ability to access them
 
 ---
 ## Welfare State Regimes ("Three Worlds")
 
 - Liberal—emphasize means tested social assistance
-	- Anglo-American countries
-	- Examples: U.S., UK, Canada, Australia…
+	- Anglo-American countries (e.g. U.S., UK, Australia)
 - Corporatist—ranked system of social insurance, emphasis on the family, narrow provisioning
-	- Continental European countries
-	- Examples: Austria, Germany, Switzerland
-- Social Democratic—universalistic, emphasis on full employment and broad provisioning (Nordic countries)
-	- Examples: Denmark, Norway, Sweden
+	- Continental European countries (e.g. Austria, Germany, Switzerland)
+- Social Democratic—universalistic, emphasis on full employment and broad provisioning         - Nordic countries (e.g. Denmark, Norway, Sweden)
 
 ---
 ## Social Spending By Category
@@ -112,7 +109,7 @@ Examples?
 - Why do some countries have higher levels of redistribution?
   - Iversen and Soskice
 
-- Bernie Sanders Loves Denmark \href{https://www.youtube.com/watch?v=U_U5THLkbfA&t=38s}{{\color{blue}{(video)}}}
+- Bernie Sanders Loves Denmark [video](https://www.youtube.com/watch?v=U_U5THLkbfA&t=38s)
 
 - Can “democratic socialism” work in the United States
 	- Is it the American dream “for real”?

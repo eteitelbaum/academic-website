@@ -110,6 +110,10 @@ title: Lecture 6.2--The Political Economy of Development
 
 ## Discussion
 
+- Are the BRICS as a group likely to challenge the dominance of Western institutions like the IMF and WTO? (Besson & Zeng)
+
+- What is the future of U.S.- China Relations? Will the two countries continue to be strong trading partners? (PBS Frontline)
+
 --- 
 # Conclusion
 

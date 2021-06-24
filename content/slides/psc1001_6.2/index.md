@@ -82,7 +82,6 @@ title: Lecture 6.2--The Political Economy of Development
 - China: 248
 - South Africa: 1
 
-Sources: [NASDAQ stock screener](https://www.nasdaq.com/market-activity/stocks/screener) and [USCC](https://www.uscc.gov/sites/default/files/2021-05/Chinese_Companies_on_US_Stock_Exchanges_5-2021.pdf)
 ---
 ## Poverty
 

@@ -1,0 +1,394 @@
+<p>In recent years, India’s Ministry of Statistics &amp; Programme Implementation (MOSPI) has been <a href="http://microdata.gov.in/nada43/index.php/catalog/central/about">releasing micro-data</a> for some of the large-scale sample surveys conducted by the <a href="http://mospi.nic.in/NSSOa">National Sample Survey Organization (NSSO)</a>. This is kind of cool because, in the past, if you wanted to work with NSS unit-level data you had to purchase it. This could be an arduous process and the data was not cheap, especially for “foreign” researchers.</p>
+<p>There is a lot of documentation that comes with these data, but not very much practical information for how to use it. After I noticed that others were struggling with <a href="https://www.researchgate.net/post/How-to-construct-employment-indicators-using-NSSO-dataset-India">similar questions</a>, I decided to transform my notes into a blog post that I hope will save others some time.</p>
+<p>The examples given here are based on the <em>NSS 68th Round: Employment and Unemployment</em> that was conducted in 2011-2012. For convenience, I am just going to refer to it as the “Employment and Unemployment Survey” or “EUS.”</p>
+<p>After 2011-2012 the EUS was replaced by the Periodic Labor Force Survey (PLFS). It is too bad that the NSS abandoned the EUS, because there were some interesting questions there about land ownership and union membership that the PLFS does not include. Nevertheless, the EUS remains a useful resource for historical analysis, and since the EUS is similar in design to other NSSO surveys, the concepts and examples provided here should be useful for analyzing a lot of the other unit-level data released by MOSPI.</p>
+<div id="accessing-the-data" class="section level2" number="0.1">
+<h2 number="0.1"><span class="header-section-number">0.1</span> Accessing the Data</h2>
+<p>The data that I am going to be working with in this post are located <a href="http://microdata.gov.in/nada43/index.php/catalog/127">here</a>. You can download the relevant files by clicking on the “GET MICRODATA” tab and filling out the necessary paperwork.</p>
+<p>Next, read the instructions on how to access the data in the <code>README_FIRST</code> file. To access the unit-level data and documentation, you will need the Nesstar Explorer installed, which you can find in the <code>software</code> folder. Once you have that installed, you need to find and run the <strong>AutorunPro.exe</strong>.</p>
+<p>{{% callout note %}} The Nesstar format that the NSSO uses may not be easily accessible for Mac users. However, I did see <a href="https://anthonylouisdagostino.com/on-working-with-indias-nss-data-in-an-osx-environment/">this post</a> on how to access the data in an OS/X environment. {{% /callout %}}</p>
+<p>From there, navigate to <code>Data set\Data Files</code> folder and click on the folder that you want to download. For this example, we will be using <code>Block_5_1_Usual principal activity particulars of household members</code> and <code>Block_4_Demographic particulars of household members</code>.</p>
+<p>Next you need to click on the link that reads “Click here to access/export data files from Nesstar format.” Now you can download and save the file. I find it helpful to rename the file to something shorter, more intuitive and with fewer spaces. For example, I renamed these two files <code>block_5_1_principal_activity</code> and <code>block_4_demographic_particulars</code>.</p>
+</div>
+<div id="sampling-design" class="section level2" number="0.2">
+<h2 number="0.2"><span class="header-section-number">0.2</span> Sampling Design</h2>
+<p>Before working with the NSS data, it is good to be familiar with the basic design of the survey. I will review some of the more important elements here. For more detailed information, you can access the survey documentation. The files titled “Introduction Concepts, Definitions and Procedures,” “Instructions to Field Staff” and “Procedures for Obtaining Estimates of Aggregates, Ratios and their RSEs” in the <code>Other Materials</code> folder should tell you everything you want to know about the survey and how it was conducted.</p>
+<p>{{% callout note %}} The design described here pertains to surveys starting with NSS 61 in 2004-05 when the NSSO began stratifying by rural and urban areas within each district. Prior to that, NSS surveys were stratified by population at the state and regional level. {{% /callout %}}</p>
+<p>Here are the key features of the sampling design for the 2011-2012 EUS:</p>
+<p><strong><em>PSU</em></strong>: The primary sampling units (PSUs) are census villages in the rural sector and Urban Frame Survey (UFS) blocks in the urban sector. In the NSS documentation, PSUs are referred to as “First Stage Units (FSUs).”</p>
+<p><strong><em>Sampling Frame</em></strong>: For the rural sector, the sampling frame is all of the census villages. For the urban sector, the sampling frame is a list of UFS blocks.</p>
+<p><strong><em>USU</em></strong>: The ultimate sampling units (USU) are households in the rural and urban sectors. In the NSS documentation, the USU is referred to as the “Ultimate Stage Unit.”</p>
+<p><strong><em>Strata</em></strong>: The sample is first stratified by rural and urban areas within each district. Then all towns with a population over one million constitute their own separate stratum. So say you have a district with two towns with more than one million inhabitants. In that case, you would have four strata in the district: one rural; one for each of the towns; and a third for the remaining towns with fewer than one million inhabitants. The data taken from each strata are referred to as “subsamples” in the NSS documentation.</p>
+<p><strong><em>Sub-strata</em></strong>: There are four substrata within each rural and urban stratum. These are created by listing the villages/towns in ascending order of population (for rural areas) or households (for urban areas) and then demarcating the four strata so that each stratum has roughly equal population.</p>
+<p><strong><em>Selection of PSUs</em></strong>: In rural areas, villages are selected by probability proportional to size with replacement, where size is the population of the village as per the census. For urban areas, blocks are selected by simple random sampling without replacement.</p>
+<p><strong><em>Hamlet Groups and Sub-blocks</em></strong>: If the population of the PSU is more than 1,200, it is divided into a smaller number of relatively equal-size hamlet groups or sub-blocks. The number of hamlet groups or sub-blocks increases with the size of the population of the PSU. Once the population has been divided up into hamlet groups or sub-blocks, two of them are selected. The hamlet group or sub-block with the biggest share of the population is always selected. The second is selected by simple random sampling.</p>
+<p><strong><em>Rounds</em></strong>: Most NSS surveys are carried out in multiple rounds (usually four) over an extended period of time (usually one year).</p>
+<p><strong><em>Weights</em></strong>: The NSS data include a number of weights. The file titled “sampling.html” in the “technical information” folder has some information on the weights. From Nesstar Explorer, you can access this file through the “Sampling” icon under “Study Description.”</p>
+<p>The weights (mulptilers) are subsample weights and have to be manipulated to get overall population weights. In the data, we see:</p>
+<ul>
+<li><code>MLT</code>–Sub-sample multiplier</li>
+<li><code>MLT_SR</code>–Sub-round multiplier</li>
+<li><code>Multiplier_comb</code>–Combined multiplier</li>
+</ul>
+<p><code>Multiplier_comb</code> is the weight for “generating subsample-wise estimates based on data of all subrounds taken together.” It is calculated by taking <code>MLT</code> and dividing by 100 if <code>NSS</code> = <code>NSC</code> or dividing <code>MLT</code> by 200 otherwise. This is the main weight that you want to work with if you are using the whole database (as opposed to data from a particular subround).</p>
+<ul>
+<li><code>NSS</code>–the count of sub-sample wise values falling within a stratum</li>
+<li><code>NSC</code>–sub-sample combined values falling within a stratum</li>
+</ul>
+<p>Whenever a sample value is repeated in both the sub-samples (rural and urban), the multiplier value is (<code>MLT</code>/100), whereas if the sample value is present in only one sub-sample, the multipler value is (<code>MLT</code>/200).</p>
+<p><strong><em>Second Stage Strata</em></strong>: There are three strata for the selection of households within each FSU, hamlet group or sub-block.</p>
+<ul>
+<li>Rural sector
+<ul>
+<li>SSS1: Relatively affluent households</li>
+<li>SSS2: Of the remaining households, those with principal income from non-agricultural activity</li>
+<li>SSS3: Other households</li>
+</ul></li>
+<li>Urban sector
+<ul>
+<li>SSS1: HH with MPCE in top 10% of urban population</li>
+<li>SSS2: HH with MPCE in middle 60% of urban population</li>
+<li>SSS3: HH with MPCE in bottom 30% of urban population</li>
+</ul></li>
+</ul>
+<p><strong><em>Selection of Households</em></strong>: For FSUs without hamlet groups or sub-blocks, the distribution of households among the second stage strata is as follows:</p>
+<ul>
+<li>SSS1: 2 households if there are no hamlet groups/sub-blocks; 1 otherwise</li>
+<li>SSS2: 4 households if there are no hamlet groups/sub-blocks; 2 otherwise</li>
+<li>SSS3: 2 households if there are no hamlet groups/sub-blocks; 1 otherwise</li>
+</ul>
+</div>
+<div id="organizing-the-data" class="section level2" number="0.3">
+<h2 number="0.3"><span class="header-section-number">0.3</span> Organizing the Data</h2>
+<p>The NSS data are released in separate “blocks.” Oftentimes you want to merge the blocks so that you can see how variables stored in one block relate to those stored in another block. For our analysis, we are mostly going to be using data from Block 5 but we will also need to grab data on the respondent’s sex from Block 4.</p>
+<p>Let’s go ahead and open <code>block_5_1_principal_activity</code>. The variable names are a little long and unconventional and most of them are not labeled. For clarity’s sake, we can rename, label and keep the variables that will be useful for this exercise.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> block_5_1_principal_activity, <span class="kw">clear</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> State state</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> state <span class="st">&quot;state code&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> District_code dist_code</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> dist_code <span class="st">&quot;district code&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Sector sector</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> sector <span class="st">&quot;rural or urban&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Stratum stratum</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> stratum <span class="st">&quot;stratum&quot;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Sub_Stratum_No substratum</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> substratum <span class="st">&quot;substratum&quot;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> FSU_Serial_No psu</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> psu <span class="st">&quot;primary survey unit (village/block)&quot;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Hamlet_Group_Sub_Block_No hamlet_subblock</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> hamlet_subblock <span class="st">&quot;hamlet group or sub-block number&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Second_Stage_Stratum_No ss_strata_no</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> ss_strata_no <span class="st">&quot;second stage stratum number&quot;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Sample_Hhld_No household</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> household <span class="st">&quot;represents the nth household within each of the second stage stratum&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Person_Serial_No person</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> person <span class="st">&quot;identifier for individual respondent&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Age age</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> age <span class="st">&quot;age of respondent&quot;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Usual_Principal_Activity_Status upas_code</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> upas_code <span class="st">&quot;Usual principal activity status code&quot;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> HHID hhid</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> hhid <span class="st">&quot;household identifier&quot;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Multiplier_comb <span class="kw">pweight</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> <span class="kw">pweight</span> <span class="st">&quot;probability weight (combined multiplier)&quot;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="kw">keep</span> state dist_code sector stratum substratum psu <span class="kw">pweight</span> hamlet_subblock ss_strata_no household hhid person age upas_code</span></code></pre></div>
+<pre><code></code></pre>
+<p>We need to <code>destring</code> the variable <code>upas_code</code> because it has to be an integer in order to use it with Stata’s <code>svy</code> commands as we will do below.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">destring</span> upas_code, <span class="kw">replace</span></span></code></pre></div>
+<pre><code>upas_code: all characters numeric; replaced as byte</code></pre>
+<p>We also need to generate an identifier for the first stage strata since the dataset does not actually include one.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> fs_strata = state + sector + stratum + substratum</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> fs_strata <span class="st">&quot;first stage strata&quot;</span></span></code></pre></div>
+<pre><code></code></pre>
+<p>Now we need to create a unique identifier for each observation that we can use for merging block 5 with other files in the dataset:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id = hhid + person</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> id <span class="st">&quot;observation identifier&quot;</span></span></code></pre></div>
+<pre><code></code></pre>
+<p>Let’s reorder the data in a more intuitive way and save all of the changes that we made in a new file:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> id state dist_code sector stratum substratum psu fs_strata hamlet_subblock ss_strata household hhid person <span class="kw">pweight</span> age upas_code</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> block_5_1_exercise, <span class="kw">replace</span></span></code></pre></div>
+<pre><code>(file block_5_1_exercise.dta not found)
+file block_5_1_exercise.dta saved</code></pre>
+<p>For this exercise, we are going to need to get the sex of the respondent from Block 4 on “demographic particulars.” Let’s open the Block 4 file and save a new file with just the sex of the respondent and the observation identifier.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> block_4_demographic_particulars, <span class="kw">clear</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">destring</span> Sex, <span class="kw">replace</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> Sex (2=1) (1=0), <span class="kw">gen</span>(sex)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> sex <span class="st">&quot;1 = female; 0 = male&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> Person_Serial_No person</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> person <span class="st">&quot;identifier for individual respondent&quot;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ren</span> HHID hhid</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> hhid <span class="st">&quot;household identifier&quot;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id = hhid + person</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> id <span class="st">&quot;observation identifier&quot;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="kw">keep</span> sex id</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> block_4_exercise, <span class="kw">replace</span></span></code></pre></div>
+<pre><code>file block_5_1_exercise.dta cannot be modified or erased; likely cause is
+    read-only directory or file
+r(608);
+
+
+
+Sex: all characters numeric; replaced as byte
+
+(456999 differences between Sex and sex)
+
+
+
+
+
+
+
+
+
+(file block_4_exercise.dta not found)
+file block_4_exercise.dta saved</code></pre>
+<p>Now we can merge the block 4 and 5 files and save the resulting file as a new file titled <code>NSS_exercise</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> block_5_1_exercise, <span class="kw">clear</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 id <span class="kw">using</span> block_4_exercise</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> NSS_exercise, <span class="kw">replace</span></span></code></pre></div>
+<pre><code>    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           456,999  (_merge==3)
+    -----------------------------------------
+
+(file NSS_exercise.dta not found)
+file NSS_exercise.dta saved</code></pre>
+</div>
+<div id="svyset-the-nss-data" class="section level2" number="0.4">
+<h2 number="0.4"><span class="header-section-number">0.4</span> Svyset the NSS Data</h2>
+<p>The next step is going to be to <code>svyset</code> the data so that Stata is aware of the key elements of the survey design. Without these, Stata will not produce accurate point estimates or standard errors</p>
+<p>If you are not familiar with <code>svyset</code>, Stata has a <a href="https://www.youtube.com/watch?v=XYjWCL7IEKU">video</a> that provides a basic introduction. I also highly recommend this <a href="https://stats.idre.ucla.edu/stata/seminars/survey-data-analysis-in-stata-17/">UCLA tutorial</a>, which provides a more detailed walkthrough as well as a great introduction to survey design.</p>
+<p>The three basic elements of the survey that we want Stata to be aware of are the primary survey unit, the probability weight and the first stage strata. We should also tell Stata how to deal with possible single units in a stratum by setting the <code>singleunit</code> option. After we <code>svyset</code> these elements, we can use <code>svydescribe</code> to view detailed information about the design elements.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> NSS_exercise, <span class="kw">clear</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> psu [pw = <span class="kw">pweight</span>], <span class="kw">strata</span>(fs_strata) singleunit(centered)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>svydescribe</span></code></pre></div>
+<p>I am omitting the <code>svydescribe</code> output here because it is quite long. But if you run it on your machine, you will notice that the output from <code>svydescribe</code> is very similar but not identical to what is listed in the documentation.</p>
+<p>In the <code>svydescribe</code> output, we see 3,143 total (sub)strata, 12,737 PSUs and a total of 456,999 individuals. The overview section of the documentation says that 12,654 PSUs out of an allotted 12,808 were surveyed while the file titled “Estimation Procedure_68.doc” says that 12,784 PSUs were allotted. The overview section also states that 100,957 households and 459,784 individuals were surveyed. All of these figures differ slightly from what we find in the files. And doing a similar exercise for the <code>Block_3_Household characteristics</code>, I find that the number of households surveyed is 101,724.</p>
+<p>I am not entirely sure how to reconcile the differences between the documentation and what we see in the files. Perhaps in some cases the NSSO could not survey an allotted PSU due to difficult field conditions. Browsing through the <code>svydescribe</code> output, we see some strata in which the output from <code>svydescribe</code> lists three units where the “Estimation Procedure_68.doc” file lists four allotted PSUs, which seems like evidence in favor of this hypothesis. The discrepancies could also be due to human error in writing up the documentation. Or perhaps some additional cleaning of the data was done after the documentation was written. Maybe others will have some insights that I can incorporate into the post.</p>
+</div>
+<div id="reproduce-some-nss-results" class="section level2" number="0.5">
+<h2 number="0.5"><span class="header-section-number">0.5</span> Reproduce Some NSS Results</h2>
+<p>Let’s try to replicate some of the household characteristics estimates from the report entitled “Key Indicators of Employment and Unemployment in India, 2011-12.”</p>
+<p>We will focus on Table 1 in section 3.3 on Labor Force Participation and Unemployment.</p>
+<p><img src="/media/table_3.3.2.png" /></p>
+<p>Next, we will generate indicator variables for “in the labor force” and “unemployed” based on “usual principal activity status.” Here are the relevant codes:</p>
+<ul>
+<li>11-51: Employed (we won’t use these; but good to know)</li>
+<li>81: Unemployed</li>
+<li>91-99: Not in labor force</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> inlf = (upas_code &lt; 90)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> inlf <span class="st">&quot;in the labor force&quot;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> unemployed = (upas_code == 81)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> unemployed <span class="st">&quot;unemployed&quot;</span></span></code></pre></div>
+<pre><code></code></pre>
+<p>We also need an indicator variables for working age, rural and urban:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> working_age = (age &gt;14 &amp; age &lt;60)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> rural = (sector == <span class="st">&quot;1&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> urban = (sector == <span class="st">&quot;2&quot;</span>)</span></code></pre></div>
+<pre><code>file block_5_1_exercise.dta cannot be modified or erased; likely cause is
+    read-only directory or file
+r(608);
+</code></pre>
+<p>Now, with the help of the <code>subpop()</code> and <code>over()</code> options, we can reproduce some of the statistics in the table. Let’s do labor force participation rates with a breakdown for sector (rural versus urban) and sex that we see in column (2):</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(rural): <span class="kw">mean</span> inlf, <span class="bn">over</span>(sex)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(rural): <span class="kw">mean</span> inlf</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(urban): <span class="kw">mean</span> inlf, <span class="bn">over</span>(sex)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(urban): <span class="kw">mean</span> inlf</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>: <span class="kw">mean</span> inlf</span></code></pre></div>
+<pre><code>(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata = 1,824         Number of obs   =     280,763
+Number of PSUs   = 7,469         Population size = 774,430,086
+                                 Subpop. no. obs =     280,763
+                                 Subpop. size    = 774,430,086
+                                 Design df       =       5,645
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+  c.inlf@sex |
+          0  |   .5465586   .0022148      .5422167    .5509005
+          1  |    .181117    .002068       .177063     .185171
+--------------------------------------------------------------
+Note: 1319 strata omitted because they contain no
+      subpopulation members.
+Note: Strata with single sampling unit centered at overall
+      mean.
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata = 1,824         Number of obs   =     280,763
+Number of PSUs   = 7,469         Population size = 774,430,086
+                                 Subpop. no. obs =     280,763
+                                 Subpop. size    = 774,430,086
+                                 Design df       =       5,645
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+        inlf |   .3678965    .001517      .3649225    .3708704
+--------------------------------------------------------------
+Note: 1319 strata omitted because they contain no
+      subpopulation members.
+Note: Strata with single sampling unit centered at overall
+      mean.
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata = 1,319         Number of obs   =     176,236
+Number of PSUs   = 5,268         Population size = 313,825,569
+                                 Subpop. no. obs =     176,236
+                                 Subpop. size    = 313,825,569
+                                 Design df       =       3,949
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+  c.inlf@sex |
+          0  |   .5597634    .002912      .5540542    .5654726
+          1  |   .1340984   .0024558      .1292836    .1389132
+--------------------------------------------------------------
+Note: 1824 strata omitted because they contain no
+      subpopulation members.
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata = 1,319         Number of obs   =     176,236
+Number of PSUs   = 5,268         Population size = 313,825,569
+                                 Subpop. no. obs =     176,236
+                                 Subpop. size    = 313,825,569
+                                 Design df       =       3,949
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+        inlf |   .3555847   .0020774      .3515118    .3596576
+--------------------------------------------------------------
+Note: 1824 strata omitted because they contain no
+      subpopulation members.
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =  3,143      Number of obs   =       456,999
+Number of PSUs   = 12,737      Population size = 1,088,255,655
+                               Design df       =         9,594
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+        inlf |   .3643461    .001232      .3619311     .366761
+--------------------------------------------------------------
+Note: Strata with single sampling unit centered at overall
+      mean.</code></pre>
+<p>Notice that in addition to the correct estimate of labor force participation rates, <code>svy</code> also gives us a standard error and confidence intervals for each estimate.</p>
+<p>Now let’s reproduce the labor force participation rates for the working age population that we see in column (6):</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(working_age): <span class="kw">mean</span> inlf, <span class="bn">over</span>(rural sex)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(working_age): <span class="kw">mean</span> inlf, <span class="bn">over</span>(rural)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(working_age): <span class="kw">mean</span> inlf, <span class="bn">over</span>(sex)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(working_age): <span class="kw">mean</span> inlf</span></code></pre></div>
+<pre><code>file NSS_exercise.dta cannot be modified or erased; likely cause is read-only
+    directory or file
+r(608);
+
+
+data not set up for svy, use svyset
+r(119);
+
+end of do-file
+r(119);</code></pre>
+<p>Finally, let’s scroll down to Table 3 in section 3.5 and reproduce some of the unemployment figures in the report.</p>
+<p><img src="/media/table_3_unemployment.png" /></p>
+<p>For this one, we will just stick to reproducing the estimates for the working age population in column (6):</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(inlf): <span class="kw">mean</span> unemployed, <span class="bn">over</span>(working_age rural sex)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(inlf): <span class="kw">mean</span> unemployed, <span class="bn">over</span>(working_age rural)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(inlf): <span class="kw">mean</span> unemployed, <span class="bn">over</span>(working_age sex)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>, subpop(inlf): <span class="kw">mean</span> unemployed, <span class="bn">over</span>(working_age)</span></code></pre></div>
+<pre><code>file NSS_exercise.dta cannot be modified or erased; likely cause is read-only
+    directory or file
+r(608);
+
+
+data not set up for svy, use svyset
+r(119);
+
+end of do-file
+r(119);</code></pre>
+<p>Here we are able to reproduce the report’s result that based on “usual status,” the unemployment rate is roughly 2.4% in the rural sector, about 4% in the urban sector and 2.3% overall as well as the breakdown for males and females.</p>
+</div>
+<div id="what-about-the-second-stage-strata" class="section level2" number="0.6">
+<h2 number="0.6"><span class="header-section-number">0.6</span> What About the Second Stage Strata?</h2>
+<p>You might be thinking, “What about the second stage strata? Should we also include those when we <code>svset</code> the data to make our estimates even more precise?”" Let’s try this and see what happens.</p>
+<p>First, let’s produce a second stage strata identifier:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> ss_strata = hamlet_subblock + ss_strata_no</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>lab <span class="kw">var</span> ss_strata <span class="st">&quot;second stage strata&quot;</span></span></code></pre></div>
+<pre><code>file NSS_exercise.dta cannot be modified or erased; likely cause is read-only
+    directory or file
+r(608);
+</code></pre>
+<p>Now, let’s try using <code>svyset</code>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> psu [pw = <span class="kw">pweight</span>], <span class="kw">strata</span>(fs_strata) <span class="co">///</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>|| household, <span class="kw">strata</span>(ss_strata) singleunit(centered)</span></code></pre></div>
+<pre><code>note: stage 1 is sampled with replacement; further stages will be ignored for
+      variance estimation.
+
+Sampling weights: pweight
+             VCE: linearized
+     Single unit: centered
+        Strata 1: fs_strata
+ Sampling unit 1: psu
+           FPC 1: &lt;zero&gt;</code></pre>
+<p>Stata gives a note that it is not considering the second stage strata. According to <a href="https://www.stata.com/statalist/archive/2006-06/msg00074.html">this thread</a>, this has to do the with the fact that a finite population correction (FPC) has not been specified in the <code>svyset</code> syntax.</p>
+<p>For NSS data, FPC cannot be included for the rural sector because PSUs are indeed selected with replacement as per the survey design. While FPC could theoretically be included for the urban sector, the data needed for calculating the FPC (strata sampling rates or units of population belonging to strata) are not publicly available.</p>
+<p>However, there is also an argument to be made that second stage strata may not be all that important for calculations based on NSS data due to the size of India’s population. If the population is so big relative to the sample then you can treat it as infinite, then the second stage strata are immaterial.</p>
+</div>
+<div id="conclusion" class="section level2" number="0.7">
+<h2 number="0.7"><span class="header-section-number">0.7</span> Conclusion</h2>
+<p>In this post, I reviewed the basic survey design for the NSS Employment &amp; Unemployment Survey and then gave a couple of examples of how to reproduce the results from the survey’s main report. Of course, the real fun in being able to access the unit-level NSS data is going to be in producing your own original estimates. Let me know what you come up with!</p>
+<script src="https://utteranc.es/client.js"
+        repo="eteitelbaum/academic-website"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

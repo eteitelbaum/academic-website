@@ -224,20 +224,18 @@ If you are not familiar with `svyset`, Stata has a [video](https://www.youtube.c
 
 The three basic elements of the survey that we want Stata to be aware of are the primary survey unit, the probability weight and the first stage strata. We should also tell Stata how to deal with possible single units in a stratum by setting the `singleunit` option. After we `svyset` these elements, we can use `svydescribe` to view detailed information about the design elements.
 
-```{stata svyset, collectcode=TRUE}
+```{stata svyset, results=FALSE, collectcode=TRUE}
 use NSS_exercise, clear
 svyset psu [pw = pweight], strata(fs_strata) singleunit(centered)
 
 svydescribe
 ```
 
-One thing we notice is that the output from `svydescribe` is very similar but not identical to what is listed in the documentation.  We see here 3,143 total (sub)strata, 12,737 PSUs and a total of 456,999 individuals.
+I am omitting the `svydescribe` output here because it is quite long. But if you run it on your machine, you will notice that the output from `svydescribe` is very similar but not identical to what is listed in the documentation. 
 
-In the overview section, the documentation says that 12,654 PSUs out of an allotted 12,808 were surveyed while the file titled "Estimation Procedure_68.doc" says that 12,784 PSUs were allotted. The overview section also states that 100,957 households and 459,784 individuals were surveyed. All of these figures differ slightly from what we find in the files. (Doing a similar exercise for the `Block_3_Household characteristics`, I find that the number of households surveyed is 101,724.)
+In the `svydescribe` output, we see 3,143 total (sub)strata, 12,737 PSUs and a total of 456,999 individuals. The overview section of the documentation says that 12,654 PSUs out of an allotted 12,808 were surveyed while the file titled "Estimation Procedure_68.doc" says that 12,784 PSUs were allotted. The overview section also states that 100,957 households and 459,784 individuals were surveyed. All of these figures differ slightly from what we find in the files. And doing a similar exercise for the `Block_3_Household characteristics`, I find that the number of households surveyed is 101,724. 
 
-Browsing through the `svydescribe` output some more, we see some strata in which the output from `svydescribe` lists three units where the "Estimation Procedure_68.doc" file lists four allotted PSUs.
-
-I am not entirely sure how to reconcile the differences between the documentation and what we see in the files. Perhaps in some cases the NSSO could not survey an allotted PSU due to difficult field conditions. Perhaps the discrepancies are due to human error in writing up the documentation. Or perhaps some additional cleaning of the data was done after the documentation was written. Maybe others will have some insights for me here.
+I am not entirely sure how to reconcile the differences between the documentation and what we see in the files. Perhaps in some cases the NSSO could not survey an allotted PSU due to difficult field conditions. Browsing through the `svydescribe` output, we see some strata in which the output from `svydescribe` lists three units where the "Estimation Procedure_68.doc" file lists four allotted PSUs, which seems like evidence in favor of this hypothesis. The discrepancies could also be due to human error in writing up the documentation. Or perhaps some additional cleaning of the data was done after the documentation was written. Maybe others will have some insights that I can incorporate into the post.
 
 ## Reproduce Some NSS Results
 

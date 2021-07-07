@@ -11,11 +11,11 @@ authors: []
 lastmod: '2021-07-07T10:50:25-04:00'
 featured: no
 image:
-  caption: ''
+  caption: 'Utpal Baruah/Reuters'
   focal_point: ''
   preview_only: no
 projects: []
-draft: TRUE
+draft: FALSE
 ---
 
 ```{r setup, include = FALSE}
@@ -111,7 +111,6 @@ The NSS data are released in separate "blocks." Oftentimes you want to merge the
 Let's go ahead and open `block_5_1_principal_activity`.  The variable names are a little long and unconventional and most of them are not labeled. For clarity's sake, we can rename, label and keep the variables that will be useful for this exercise.
 
 ```{stata organize_data, collectcode=TRUE}
-cd "C:\Users\emman\Dropbox\Documents\Data\India Data\NSS\NSS EUS 68"
 use block_5_1_principal_activity, clear
 
 ren State state
@@ -293,7 +292,7 @@ svy, subpop(working_age): mean inlf
 
 Finally, let's scroll down to Table 3 in section 3.5 and reproduce some of the unemployment figures in the report.
 
-![](/media/table_3_unemployment)
+![](/media/table_3_unemployment.png)
 
 For this one, we will just stick to reproducing the estimates for the working age population in column (6):
 

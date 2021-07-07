@@ -11,11 +11,11 @@ authors: []
 lastmod: '2021-07-07T10:50:25-04:00'
 featured: no
 image:
-  caption: ''
+  caption: 'Utpal Baruah/Reuters'
   focal_point: ''
   preview_only: no
 projects: []
-draft: TRUE
+draft: FALSE
 ---
 
 
@@ -108,7 +108,6 @@ Let's go ahead and open `block_5_1_principal_activity`.  The variable names are 
 
 
 ```stata
-cd "C:\Users\emman\Dropbox\Documents\Data\India Data\NSS\NSS EUS 68"
 use block_5_1_principal_activity, clear
 
 ren State state
@@ -205,6 +204,7 @@ save block_5_1_exercise, replace
 ```
 
 ```
+(file block_5_1_exercise.dta not found)
 file block_5_1_exercise.dta saved
 ```
 
@@ -244,6 +244,7 @@ Sex: all characters numeric; replaced as byte
 
 
 
+(file block_4_exercise.dta not found)
 file block_4_exercise.dta saved
 ```
 
@@ -263,6 +264,7 @@ save NSS_exercise, replace
     Matched                           456,999  (_merge==3)
     -----------------------------------------
 
+(file NSS_exercise.dta not found)
 file NSS_exercise.dta saved
 ```
 
@@ -3711,7 +3713,7 @@ Note: Strata with single sampling unit centered at overall
 
 Finally, let's scroll down to Table 3 in section 3.5 and reproduce some of the unemployment figures in the report.
 
-![](/media/table_3_unemployment)
+![](/media/table_3_unemployment.png)
 
 For this one, we will just stick to reproducing the estimates for the working age population in column (6):
 

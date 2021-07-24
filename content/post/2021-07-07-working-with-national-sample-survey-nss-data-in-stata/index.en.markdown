@@ -1,7 +1,7 @@
 ---
 title: Working with National Sample Survey (NSS) data in Stata
 author: Emmanuel Teitelbaum
-date: '2021-07-07'
+date: '2021-07-24'
 slug: working-with-nss-data-in-stata
 categories: []
 tags: []
@@ -166,20 +166,12 @@ We need to `destring` the variable `upas_code` because it has to be an integer i
 destring upas_code, replace
 ```
 
-```
-upas_code: all characters numeric; replaced as byte
-```
-
 We also need to generate an identifier for the first stage strata since the dataset does not actually include one.
 
 
 ```stata
 gen fs_strata = state + sector + stratum + substratum
 lab var fs_strata "first stage strata"
-```
-
-```
-
 ```
 
 Now we need to create a unique identifier for each observation that we can use for merging block 5 with other files in the dataset:
@@ -190,10 +182,6 @@ gen id = hhid + person
 lab var id "observation identifier"
 ```
 
-```
-
-```
-
 Let's reorder the data in a more intuitive way and save all of the changes that we made in a new file:
 
 
@@ -201,11 +189,6 @@ Let's reorder the data in a more intuitive way and save all of the changes that 
 order id state dist_code sector stratum substratum psu fs_strata hamlet_subblock ss_strata household hhid person pweight age upas_code
 
 save block_5_1_exercise, replace
-```
-
-```
-(file block_5_1_exercise.dta not found)
-file block_5_1_exercise.dta saved
 ```
 
 For this exercise, we are going to need to get the sex of the respondent from Block 4 on "demographic particulars." Let's open the Block 4 file and save a new file with just the sex of the respondent and the observation identifier.
@@ -231,23 +214,6 @@ keep sex id
 save block_4_exercise, replace
 ```
 
-```
-Sex: all characters numeric; replaced as byte
-
-(456999 differences between Sex and sex)
-
-
-
-
-
-
-
-
-
-(file block_4_exercise.dta not found)
-file block_4_exercise.dta saved
-```
-
 Now we can merge the block 4 and 5 files and save the resulting file as a new file titled `NSS_exercise`.
 
 
@@ -255,16 +221,6 @@ Now we can merge the block 4 and 5 files and save the resulting file as a new fi
 use block_5_1_exercise, clear
 merge 1:1 id using block_4_exercise
 save NSS_exercise, replace
-```
-
-```
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                             0
-    Matched                           456,999  (_merge==3)
-    -----------------------------------------
-
-file NSS_exercise.dta saved
 ```
 
 ## Svyset the NSS Data
@@ -312,343 +268,143 @@ gen unemployed = (upas_code == 81)
 lab var unemployed "unemployed"
 ```
 
-```
-
-```
-
 We also need an indicator variables for working age, rural and urban:
 
 
 ```stata
 gen working_age = (age >14 & age <60)
+lab var working_age "of working age"
+
 gen rural = (sector == "1")
+lab var rural "rural sector"
+
 gen urban = (sector == "2")
+lab var urban "urban sector"
+save NSS_exercise, replace
 ```
 
-```
-
-```
-
-Now, with the help of the `subpop()` and `over()` options, we can reproduce some of the statistics in the table. Let's do labor force participation rates with a breakdown for sector (rural versus urban) and sex that we see in column (2):
+Now  we can reproduce some of the statistics in the table. Let's start with the labor force participation rates (LFPR) based on the "usual status" method that we see in the first six rows of column (2). 
 
 
 ```stata
-svy, subpop(rural): mean inlf, over(sex)
-svy, subpop(rural): mean inlf
-svy, subpop(urban): mean inlf, over(sex)
-svy, subpop(urban): mean inlf
-svy: mean inlf
+use NSS_exercise, clear
+quietly: collect: svy: mean inlf, over(rural sex) 
+quietly: collect: svy: mean inlf, over(rural) 
+collect layout (colname) (result[_r_b _r_se _r_ci]) (cmdset) 
+collect clear 
 ```
 
 ```
-(running mean on estimation sample)
+Collection: default
+      Rows: colname
+   Columns: result[_r_b _r_se _r_ci]
+    Tables: cmdset
+   Table 1: 4 x 3
+   Table 2: 2 x 3
 
-Survey: Mean estimation
+1
+--------------------------------------------------------------------------------------------------------
+                                                             | Coefficient Std. error       95% CI      
+-------------------------------------------------------------+------------------------------------------
+in the labor force @ rural sector=0 # 1 = female; 0 = male=0 |    .5597634    .002912 .5540553  .5654716
+in the labor force @ rural sector=0 # 1 = female; 0 = male=1 |    .1340984   .0024558 .1292845  .1389123
+in the labor force @ rural sector=1 # 1 = female; 0 = male=0 |    .5465586   .0022148 .5422171  .5509002
+in the labor force @ rural sector=1 # 1 = female; 0 = male=1 |     .181117    .002068 .1770633  .1851707
+--------------------------------------------------------------------------------------------------------
 
-Number of strata = 1,824         Number of obs   =     280,763
-Number of PSUs   = 7,469         Population size = 774,430,086
-                                 Subpop. no. obs =     280,763
-                                 Subpop. size    = 774,430,086
-                                 Design df       =       5,645
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-  c.inlf@sex |
-          0  |   .5465586   .0022148      .5422167    .5509005
-          1  |    .181117    .002068       .177063     .185171
---------------------------------------------------------------
-Note: 1319 strata omitted because they contain no
-      subpopulation members.
-Note: Strata with single sampling unit centered at overall
-      mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata = 1,824         Number of obs   =     280,763
-Number of PSUs   = 7,469         Population size = 774,430,086
-                                 Subpop. no. obs =     280,763
-                                 Subpop. size    = 774,430,086
-                                 Design df       =       5,645
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-        inlf |   .3678965    .001517      .3649225    .3708704
---------------------------------------------------------------
-Note: 1319 strata omitted because they contain no
-      subpopulation members.
-Note: Strata with single sampling unit centered at overall
-      mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata = 1,319         Number of obs   =     176,236
-Number of PSUs   = 5,268         Population size = 313,825,569
-                                 Subpop. no. obs =     176,236
-                                 Subpop. size    = 313,825,569
-                                 Design df       =       3,949
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-  c.inlf@sex |
-          0  |   .5597634    .002912      .5540542    .5654726
-          1  |   .1340984   .0024558      .1292836    .1389132
---------------------------------------------------------------
-Note: 1824 strata omitted because they contain no
-      subpopulation members.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata = 1,319         Number of obs   =     176,236
-Number of PSUs   = 5,268         Population size = 313,825,569
-                                 Subpop. no. obs =     176,236
-                                 Subpop. size    = 313,825,569
-                                 Design df       =       3,949
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-        inlf |   .3555847   .0020774      .3515118    .3596576
---------------------------------------------------------------
-Note: 1824 strata omitted because they contain no
-      subpopulation members.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143      Number of obs   =       456,999
-Number of PSUs   = 12,737      Population size = 1,088,255,655
-                               Design df       =         9,594
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-        inlf |   .3643461    .001232      .3619311     .366761
---------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall
-      mean.
+2
+-------------------------------------------------------------------------------
+                                    | Coefficient Std. error       95% CI      
+------------------------------------+------------------------------------------
+in the labor force @ rural sector=0 |    .3555847   .0020774 .3515125  .3596569
+in the labor force @ rural sector=1 |    .3678965    .001517 .3649228  .3708702
+-------------------------------------------------------------------------------
 ```
 
-Notice that in addition to the correct estimate of labor force participation rates, `svy` also gives us a standard error and confidence intervals for each estimate.
+Notice that here I used the `over()` subcommand to get the breakdown by sector and sex. I also used the `quietly` and `collect` prefixes to enhance the readability of the output. The full output can be obtained by simply deleting these prefixes, e.g. `svy: mean inlf`. 
 
-Now let's reproduce the labor force participation rates for the working age population that we see in column (6):
+Although the results are presented in a slightly different order, we find that we are able to accurately reproduce the results from the report. In the urban sector, the LFPR is 56% for males, 13.4% for females and 35.6% for the urban population overall. In the rural sector, the LFPR is 54.7% for males, 18.1% for females and 36.8% for the rural population overall. 
+
+In addition to the correct estimate of labor force participation rates, `svy` also gives us standard errors and confidence intervals for each estimate. This is one of the major advantages of using the `svy` command as opposed to simply multiplying the survey weights by the variable of interest.  
+
+Now let's use the `subpop` command to reproduce the labor force participation rates for the working age population that we see in the last three rows of column (6):
 
 
 ```stata
-svy, subpop(working_age): mean inlf, over(rural sex)
-svy, subpop(working_age): mean inlf, over(rural)
-svy, subpop(working_age): mean inlf, over(sex)
-svy, subpop(working_age): mean inlf
+use NSS_exercise, clear
+quietly: collect: svy, subpop(working_age): mean inlf, over(sex)
+quietly: collect: svy, subpop(working_age): mean inlf
+collect layout (colname) (result[_r_b _r_se _r_ci]) (cmdset)
+collect clear 
 ```
 
 ```
-(running mean on estimation sample)
+Collection: default
+      Rows: colname
+   Columns: result[_r_b _r_se _r_ci]
+    Tables: cmdset
+   Table 1: 2 x 3
+   Table 2: 1 x 3
 
-Survey: Mean estimation
+1
+---------------------------------------------------------------------------------------
+                                            | Coefficient Std. error       95% CI      
+--------------------------------------------+------------------------------------------
+in the labor force @ 1 = female; 0 = male=0 |    .8203601   .0020346 .8163717  .8243484
+in the labor force @ 1 = female; 0 = male=1 |    .2471564    .002415 .2424225  .2518903
+---------------------------------------------------------------------------------------
 
-Number of strata =  3,143         Number of obs   =        456,999
-Number of PSUs   = 12,737         Population size =  1,088,255,655
-                                  Subpop. no. obs =        288,782
-                                  Subpop. size    = 674,200,360.03
-                                  Design df       =          9,594
-
-------------------------------------------------------------------
-                 |             Linearized
-                 |       Mean   std. err.     [95% conf. interval]
------------------+------------------------------------------------
-c.inlf@rural#sex |
-            0 0  |     .80556   .0031986      .7992902    .8118299
-            0 1  |   .1927081   .0035107      .1858264    .1995897
-            1 0  |   .8271007    .002589      .8220256    .8321757
-            1 1  |   .2706094   .0031026      .2645276    .2766911
-------------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143     Number of obs   =        456,999
-Number of PSUs   = 12,737     Population size =  1,088,255,655
-                              Subpop. no. obs =        288,782
-                              Subpop. size    = 674,200,360.03
-                              Design df       =          9,594
-
+2
 --------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-c.inlf@rural |
-          0  |    .510282    .002636      .5051149    .5154491
-          1  |   .5512227   .0019802      .5473411    .5551042
+                   | Coefficient Std. error       95% CI      
+-------------------+------------------------------------------
+in the labor force |      .53865   .0015887 .5355358  .5417643
 --------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall
-      mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143     Number of obs   =        456,999
-Number of PSUs   = 12,737     Population size =  1,088,255,655
-                              Subpop. no. obs =        288,782
-                              Subpop. size    = 674,200,360.03
-                              Design df       =          9,594
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-  c.inlf@sex |
-          0  |   .8203601   .0020346      .8163717    .8243484
-          1  |   .2471564    .002415      .2424225    .2518903
---------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall
-      mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143     Number of obs   =        456,999
-Number of PSUs   = 12,737     Population size =  1,088,255,655
-                              Subpop. no. obs =        288,782
-                              Subpop. size    = 674,200,360.03
-                              Design df       =          9,594
-
---------------------------------------------------------------
-             |             Linearized
-             |       Mean   std. err.     [95% conf. interval]
--------------+------------------------------------------------
-        inlf |     .53865   .0015887      .5355358    .5417643
---------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall
-      mean.
 ```
 
 Finally, let's scroll down to Table 3 in section 3.5 and reproduce some of the unemployment figures in the report.
 
 ![](/media/table_3_unemployment.png)
 
-For this one, we will just stick to reproducing the estimates for the working age population in column (6):
+For this one, let's reproduce the unemployment figures according to the "usual status" method for the working age population for the bottom three rows in column (6):
 
 
 ```stata
-svy, subpop(inlf): mean unemployed, over(working_age rural sex)
-svy, subpop(inlf): mean unemployed, over(working_age rural)
-svy, subpop(inlf): mean unemployed, over(working_age sex)
-svy, subpop(inlf): mean unemployed, over(working_age)
+use NSS_exercise, clear 
+quietly: collect: svy, subpop(inlf): mean unemployed, over(working_age sex)
+quietly: collect: svy, subpop(inlf): mean unemployed, over(working_age)
+collect layout (colname) (result[_r_b _r_se _r_ci]) (cmdset)
+collect clear
 ```
 
 ```
-(running mean on estimation sample)
+Collection: default
+      Rows: colname
+   Columns: result[_r_b _r_se _r_ci]
+    Tables: cmdset
+   Table 1: 4 x 3
+   Table 2: 2 x 3
 
-Survey: Mean estimation
+1
+--------------------------------------------------------------------------------------------------
+                                                       | Coefficient Std. error       95% CI      
+-------------------------------------------------------+------------------------------------------
+unemployed @ of working age=0 # 1 = female; 0 = male=0 |    .0083967   .0014861 .0054836  .0113099
+unemployed @ of working age=0 # 1 = female; 0 = male=1 |    .0169707   .0071731 .0029098  .0310315
+unemployed @ of working age=1 # 1 = female; 0 = male=0 |    .0259937   .0009807 .0240713  .0279161
+unemployed @ of working age=1 # 1 = female; 0 = male=1 |    .0391951   .0018342 .0355996  .0427905
+--------------------------------------------------------------------------------------------------
 
-Number of strata =  3,143                  Number of obs   =        456,999
-Number of PSUs   = 12,737                  Population size =  1,088,255,655
-                                           Subpop. no. obs =        164,620
-                                           Subpop. size    = 396,501,682.08
-                                           Design df       =          9,594
-
----------------------------------------------------------------------------
-                          |             Linearized
-                          |       Mean   std. err.     [95% conf. interval]
---------------------------+------------------------------------------------
- c.unemployed@working_age#|
-                rural#sex |
-                   0 0 0  |   .0100205   .0022948      .0055223    .0145187
-                   0 0 1  |   .0046984    .003349     -.0018663     .011263
-                   0 1 0  |   .0080207   .0017522       .004586    .0114554
-                   0 1 1  |   .0189719   .0083139      .0026749     .035269
-                   1 0 0  |   .0337286   .0021231       .029567    .0378903
-                   1 0 1  |   .0686814   .0043917      .0600726    .0772901
-                   1 1 0  |   .0225626   .0010541      .0204962    .0246289
-                   1 1 1  |   .0301504   .0019821      .0262651    .0340357
----------------------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143                  Number of obs   =        456,999
-Number of PSUs   = 12,737                  Population size =  1,088,255,655
-                                           Subpop. no. obs =        164,620
-                                           Subpop. size    = 396,501,682.08
-                                           Design df       =          9,594
-
----------------------------------------------------------------------------
-                          |             Linearized
-                          |       Mean   std. err.     [95% conf. interval]
---------------------------+------------------------------------------------
- c.unemployed@working_age#|
-                    rural |
-                     0 0  |   .0091583   .0021191      .0050043    .0133122
-                     0 1  |   .0103797   .0022743      .0059216    .0148378
-                     1 0  |   .0400885   .0019124      .0363398    .0438371
-                     1 1  |   .0244093   .0009591      .0225292    .0262893
----------------------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143                     Number of obs   =        456,999
-Number of PSUs   = 12,737                     Population size =  1,088,255,655
-                                              Subpop. no. obs =        164,620
-                                              Subpop. size    = 396,501,682.08
-                                              Design df       =          9,594
-
-------------------------------------------------------------------------------
-                             |             Linearized
-                             |       Mean   std. err.     [95% conf. interval]
------------------------------+------------------------------------------------
-c.unemployed@working_age#sex |
-                        0 0  |   .0083967   .0014861      .0054836    .0113099
-                        0 1  |   .0169707   .0071731      .0029098    .0310315
-                        1 0  |   .0259937   .0009807      .0240713    .0279161
-                        1 1  |   .0391951   .0018342      .0355996    .0427905
-------------------------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall mean.
-
-(running mean on estimation sample)
-
-Survey: Mean estimation
-
-Number of strata =  3,143                 Number of obs   =        456,999
-Number of PSUs   = 12,737                 Population size =  1,088,255,655
-                                          Subpop. no. obs =        164,620
-                                          Subpop. size    = 396,501,682.08
-                                          Design df       =          9,594
-
---------------------------------------------------------------------------
-                         |             Linearized
-                         |       Mean   std. err.     [95% conf. interval]
--------------------------+------------------------------------------------
-c.unemployed@working_age |
-                      0  |   .0101621   .0019071      .0064237    .0139004
-                      1  |   .0289707   .0008804       .027245    .0306964
---------------------------------------------------------------------------
-Note: Strata with single sampling unit centered at overall mean.
+2
+-------------------------------------------------------------------------
+                              | Coefficient Std. error       95% CI      
+------------------------------+------------------------------------------
+unemployed @ of working age=0 |    .0101621   .0019071 .0064237  .0139004
+unemployed @ of working age=1 |    .0289707   .0008804  .027245  .0306964
+-------------------------------------------------------------------------
 ```
 
-Here we are able to reproduce the report's result that based on "usual status", the unemployment rate is roughly 2.4% in the rural sector, about 4% in the urban sector and 2.3% overall as well as the breakdown for males and females.
+Looking at the output where working_age == 1, we see that we are able to reproduce the report's finding that (based on "usual status" method) the unemployment rate is roughly 2.6% for men, 3.9% for women and 2.9% for the working age population overall. Of course, this is probably not the most convincing method of measuring inequality. But the main point is that we can accurately reproduce the NSSO's results! 
 
 ## What About the Second Stage Strata?
 
@@ -658,12 +414,10 @@ First, let's produce a second stage strata identifier:
 
 
 ```stata
+use NSS_exercise, clear
 gen ss_strata = hamlet_subblock + ss_strata_no
 lab var ss_strata "second stage strata"
-```
-
-```
-
+save NSS_exercise, replace
 ```
 
 Now, let's try using `svyset`:

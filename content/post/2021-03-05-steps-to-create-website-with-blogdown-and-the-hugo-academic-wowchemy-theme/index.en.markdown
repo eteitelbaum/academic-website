@@ -12,7 +12,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-06-11' 
+lastmod: '2021-08-25' 
 featured: no
 image:
   caption: '<span>Photo by <a href="https://unsplash.com/@daniel_von_appen?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel von Appen</a> on <a href="https://unsplash.com/s/photos/steps?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
@@ -30,7 +30,7 @@ These are the steps that I took to set up my website using blogdown and the [Hug
 
 3. Go to your new repository and click on the green button that says **Code**. Choose HTTPS (the default) and click on the clipboard to copy the link. 
 
-4. Open RStudio. Navigate to `File > New Project > Version Control > Git` and paste the URL from step 2 into the **Repository URL:** field. Browse to a location where you want to store the project and click **Create Project**. 
+4. Open RStudio. Navigate to `File > New Project > Version Control > Git` and paste the URL from step 3 into the **Repository URL:** field. Browse to a location where you want to store the project and click **Create Project**. 
 
 5. Install blogdown (`install.packages("blogdown")`).
 

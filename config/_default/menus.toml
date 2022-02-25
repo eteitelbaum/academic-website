@@ -17,26 +17,31 @@
   url = "teaching/"
   weight = 30
 
+
+[[main]]
+  name = "Events"
+  url = "events/"
+  weight = 40
   
 [[main]]
   name = "Resources"
   url = "resources/"
-  weight = 40
+  weight = 50
   
 [[main]]
   name = "Contact"
   url = "#contact"
-  weight = 50
+  weight = 60
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/media/resume.pdf` and uncomment the lines below.
 [[main]]
     name = "CV"
     url = "media/tr-rmarkdown-cv.pdf"
-    weight = 60
+    weight = 70
 
 
 [[main]]
   name = "Blog"
   url = "post/"
-  weight = 70
+  weight = 80

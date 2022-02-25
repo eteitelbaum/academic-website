@@ -1,5 +1,5 @@
 ---
-bio: My research interests include development, the political economy of labor and the politics of South Asia.
+bio: My research interests include labour economics, international economics and political economy.
 
 education:
   courses:

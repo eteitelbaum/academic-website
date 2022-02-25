@@ -9,13 +9,15 @@
   name = "Research"
   url = "research/"
   weight = 20
+  
+  
 
 [[main]]
   name = "Teaching"
   url = "teaching/"
   weight = 30
-  
 
+  
 [[main]]
   name = "Resources"
   url = "resources/"
@@ -32,3 +34,9 @@
     name = "CV"
     url = "media/tr-rmarkdown-cv.pdf"
     weight = 60
+
+
+ [[main]]
+  name = "Blog"
+  url = "blog/""
+  weight = 70

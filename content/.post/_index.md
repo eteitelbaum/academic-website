@@ -1,5 +1,5 @@
 ---
-header:
+  header:
   caption: ""
   image: ""
 title: Blog

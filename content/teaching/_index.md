@@ -1,7 +1,7 @@
 ---
-header:
+  header:
   caption: ""
-  image: ""
+image: ""
 layout: book
 title: Teaching
 ---

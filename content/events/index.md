@@ -10,8 +10,12 @@ title: Events
 ## Presentations
 
 
-- PEGFA Seminar Greenwich **Worker autonomy and wage growth divergence** (See slides here.)
+- PEGFA Seminar Greenwich **Worker autonomy and wage growth divergence** (See slides [here](/slides/rabensteiner-guschanski-pegfa-16-02.pdf))
   
+
+---
+## Other
+
 - 3MT Competition University of Greenwich Business School (See video below.)
 
   

@@ -7,11 +7,12 @@ summary: In this paper, we analyse the effect of worker autonomy on wage growth.
 external_link: ""
 links:
 - name: Working paper version April 2022
-  url: media/tr-rmarkdown-cv.pdf
+  url: pdf/rabensteiner_guschanski_autonomy_april_2022.pdf
+- name: Slides May 2022
+  url: pdf/autonomy-slides-may-2022.pdf
 tags:
 - Inequality
 ---
-
 
 This paper contributes to the understanding of occupational wage inequality in Western
 Europe. We assess the effect of worker autonomy, defined as the degree of control workers

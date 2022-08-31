@@ -1,9 +1,9 @@
 ---
 title: "Worker autonomy and wage divergence: Evidence from European survey data"
 linktitle: Worker autonomy
-date: 2022-02-25
+date: 2022-08-31
 authors: ["Thomas Rabensteiner", "Alexander Guschanski"]
-summary: In this paper, we analyse the effect of worker autonomy on wage growth.
+summary: 
 external_link: ""
 links:
 - name: Working paper version April 2022

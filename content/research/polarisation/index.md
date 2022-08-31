@@ -1,15 +1,15 @@
 ---
-title: Job polarisation in Western Europe
+title: Job polarisation in Europe: The Great Recession, creative
+destruction and worker power
 linktitle: Job polarisation
 date: 2022-02-24
 authors: ["Thomas Rabensteiner", "Alexander Guschanski"]
-summary: In this paper, we analyse employment patterns in Western European countries.
+summary: 
 external_link: ""
 links:
-- name: Working paper
-  url: media/tr-rmarkdown-cv.pdf
+- name:
+  url: 
 tags:
 - Inequality
 ---
 
-Job polarisation in Western Europe.

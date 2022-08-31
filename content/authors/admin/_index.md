@@ -15,7 +15,7 @@ education:
     
 email: "rabensteiner.th@gmail.com"
 
-highlight_name: false
+highlight_name: true
 
 interests:
 - Labour Economics

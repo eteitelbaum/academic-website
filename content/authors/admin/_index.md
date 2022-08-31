@@ -13,7 +13,7 @@ education:
     institution: University of Graz
     year: 2017
     
-email: "thomasrabensteiner@gre.ac.uk"
+email: "rabensteiner.th@gmail.com"
 
 highlight_name: false
 
@@ -43,19 +43,17 @@ social:
   link: https://github.com/thomasrabensteiner
 #- icon: linkedin
 #  icon_pack: fab
-#  link: https://www.linkedin.com/in/emmanuel-teitelbaum-75a93b4/
+#  link: https://www.linkedin.com/xx/
   
 superuser: true
 
 title: 
 ---
-*This website is work in progress.*
 
-I am a PhD candidate in Economics at the[ University of Greenwich](www.gre.ac.uk). My dissertations focuses on the drivers on income inequality in Western Europe.
-
-My reserach interests include labour economics, international economic and political economy.     
+I am a PhD candidate in Economics at the[ University of Greenwich](www.gre.ac.uk). My dissertation focuses on the drivers of income inequality in Western Europe.
+My research interests include labour economics, international economics and political economy.
 
 I teach courses on macroeconomics and quantitative methods.
 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/tr-rmarkdown-cv.pdf" "newtab" >}} CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} My {{< staticref "media/tr-rmarkdown-cv.pdf" "newtab" >}} CV{{< /staticref >}}.

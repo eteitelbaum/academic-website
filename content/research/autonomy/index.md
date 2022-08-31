@@ -12,6 +12,7 @@ links:
   url: slides/autonomy-slides-may-2022.pdf
 tags:
 - Inequality
+- Autonomy
 ---
 
 This paper contributes to the understanding of occupational wage inequality in Western

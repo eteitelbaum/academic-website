@@ -8495,7 +8495,7 @@ ul.share li:hover i {
  *  Page Builder: sections and widgets
  **************************************************/
 .home-section {
-  background: #1696d2;
+  background: white;
   position: relative;
   padding: 110px 0 110px 0;
   z-index: 0; }
@@ -8569,7 +8569,7 @@ ul.share li:hover i {
   padding-top: 50px; }
 
 .home-section:nth-of-type(even) {
-  background: #1696d2; }
+  background: #f7f7f7; }
 
 .dark .home-section {
   background: #272935; }

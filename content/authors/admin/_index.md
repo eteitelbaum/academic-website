@@ -1,5 +1,5 @@
 ---
-bio: My research interests include labour economics, international economics and political economy.
+bio: My research interests include labour economics, industrial relations and income distribution. 
 
 education:
   courses:
@@ -19,12 +19,12 @@ highlight_name: true
 
 interests:
 - Labour Economics
-- International Economics
-- Political Economy
+- Industrial Relations
+- Income Distribution
 
 organizations:
 - name: University of Greenwich
-  url: https://www.gre.ac.uk/
+  url: https://www.gre.ac.uk/pegfa
   
 role: PhD candidate in Economics
 
@@ -50,10 +50,10 @@ superuser: true
 title: 
 ---
 
-I am a PhD candidate in Economics at the[ University of Greenwich](www.gre.ac.uk). My dissertation focuses on the drivers of income inequality in Western Europe.
-My research interests include labour economics, international economics and political economy.
+I am a PhD candidate in Economics at the[ University of Greenwich](www.gre.ac.uk). My dissertation focuses on changes in the wage and employment structures of Western European countries.
+My research interests include labour economics, industrial relations and income distribution. 
 
-I teach courses on macroeconomics and quantitative methods.
+I have been teaching courses in macroeconomics and quantitative methods.
 
 
 {{< icon name="download" pack="fas" >}} My {{< staticref "media/tr-rmarkdown-cv.pdf" "newtab" >}} CV{{< /staticref >}}.

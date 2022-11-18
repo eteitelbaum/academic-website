@@ -9,21 +9,21 @@ headless: true
 # Order that this section appears on the page.
 weight: 100
 
-title: Please feel free to get in touch
-subtitle:
+title: Contact
+subtitle: 
 
 content:
   # Automatically link email and phone or display as text?
-  autolink: true
+  autolink: false
   
   # Email form provider
-  form:
-    provider: formspree
-    formspree:
-      id: test
-    netlify:
+  #form:
+    #provider: formspree
+    #formspree:
+      #id: test
+    #netlify:
       # Enable CAPTCHA challenge to reduce spam?
-      captcha: false
+      #captcha: false
   
 design:
   columns: '1'

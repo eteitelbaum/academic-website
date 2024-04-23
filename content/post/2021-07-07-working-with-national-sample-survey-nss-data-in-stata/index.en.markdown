@@ -11,7 +11,7 @@ authors: []
 lastmod: '2021-07-07T10:50:25-04:00'
 featured: no
 image:
-  caption: 'Utpal Baruah/Reuters'
+  caption: 'Image created by DALL-E 3'
   focal_point: ''
   preview_only: no
 projects: []
@@ -156,7 +156,10 @@ keep state dist_code sector stratum substratum psu pweight hamlet_subblock ss_st
 ```
 
 ```
+file block_5_1_principal_activity.dta not found
+r(601);
 
+r(601);
 ```
 
 We need to `destring` the variable `upas_code` because it has to be an integer in order to use it with Stata's `svy` commands as we will do below.
@@ -295,6 +298,14 @@ collect clear
 ```
 
 ```
+file block_5_1_principal_activity.dta not found
+r(601);
+
+
+
+
+
+
 Collection: default
       Rows: colname
    Columns: result[_r_b _r_se _r_ci]
@@ -339,6 +350,14 @@ collect clear
 ```
 
 ```
+file block_5_1_principal_activity.dta not found
+r(601);
+
+
+
+
+
+
 Collection: default
       Rows: colname
    Columns: result[_r_b _r_se _r_ci]
@@ -378,6 +397,14 @@ collect clear
 ```
 
 ```
+file block_5_1_principal_activity.dta not found
+r(601);
+
+
+
+
+
+
 Collection: default
       Rows: colname
    Columns: result[_r_b _r_se _r_ci]
@@ -429,15 +456,14 @@ svyset psu [pw = pweight], strata(fs_strata) ///
 ```
 
 ```
-note: stage 1 is sampled with replacement; further stages will be ignored for
-      variance estimation.
+file block_5_1_principal_activity.dta not found
+r(601);
 
-Sampling weights: pweight
-             VCE: linearized
-     Single unit: centered
-        Strata 1: fs_strata
- Sampling unit 1: psu
-           FPC 1: <zero>
+
+no variables defined
+r(111);
+
+r(111);
 ```
 
 Stata gives a note that it is not considering the second stage strata. According to [this thread](https://www.stata.com/statalist/archive/2006-06/msg00074.html), this has to do the with the fact that a finite population correction (FPC) has not been specified in the `svyset` syntax.
